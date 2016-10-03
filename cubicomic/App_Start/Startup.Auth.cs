@@ -54,9 +54,9 @@ namespace cubicomic
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "193872631023165",
-               appSecret: "bd9740e62209ee13680d2beb4e29f603");
+            //app.UseFacebookAuthentication(
+            //   appId: "",
+            //   appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
