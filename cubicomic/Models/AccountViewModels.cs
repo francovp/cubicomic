@@ -65,6 +65,10 @@ namespace cubicomic.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Nick Name")]
+        public string NickName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
