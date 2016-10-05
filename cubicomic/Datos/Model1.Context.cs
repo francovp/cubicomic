@@ -13,10 +13,10 @@ namespace cubicomic.Datos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class bd_cubicomicEntities : DbContext
+    public partial class cubicomicEntities : DbContext
     {
-        public bd_cubicomicEntities()
-            : base("name=bd_cubicomicEntities")
+        public cubicomicEntities()
+            : base("name=cubicomicEntities")
         {
         }
     
