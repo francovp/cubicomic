@@ -180,9 +180,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuscarCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberPagesController.cs" />
+    <Compile Include="Controllers\MostrarAllController.cs" />
+    <Compile Include="Controllers\SubirImagenController.cs" />
     <Compile Include="Datos\AspNetRoles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -220,7 +223,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\App_LocalResources\cubicomic\img\logo.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -315,10 +317,15 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\MemberPages\Index.cshtml" />
+    <Content Include="Views\SubirImagen\Index.cshtml" />
+    <Content Include="Views\BuscarCategoria\Index.cshtml" />
+    <Content Include="Views\MostrarAll\Index.cshtml" />
+    <Content Include="Views\MostrarAll\Lateral.cshtml" />
+    <Content Include="Views\MostrarAll\Centro.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\App_LocalResources\Mangas\" />
-    <Folder Include="App_Data\App_LocalResources\Novelas\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
