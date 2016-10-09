@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
+<br />
 
 <div class="row" <!-- Logo empresarial -->
 	<center>
@@ -8,8 +9,9 @@
     </center>
 </div>
 
-<div class="container-fluid">
-    <!-- imagenes con javascript -->
+<br />
+
+<div class="container-fluid"><!-- imagenes con javascript -->
     <div class="row">
         <div class="col-md-12">
             <div class="carousel slide" id="carousel-index">
@@ -67,13 +69,14 @@
     </div>
 </div>
 
+<br /><br />
 
 <div class="jumbotron" id="protector">
-    <h1>CUBIComic</h1>
+  
     <P ALIGN=center class="lead">Comienza a ganar dinero con tus creaciones </P>
-    <p ALIGN=center>
+    <p><center>
+        @Html.ActionLink("Crea tu pagina hoy!", "Register", "Account", routeValues: null, htmlAttributes: new { @class="btn btn-primary btn-lg", id = "registerLink" })
 
-        <a href="http://localhost:49194/Account/Register" class="btn btn-primary btn-lg">Crea tu pagina hoy &raquo;</a>
     </p>
 </div>
 
