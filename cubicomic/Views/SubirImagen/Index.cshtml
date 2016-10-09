@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Subir Imagen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm("subir", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" /> <button type="submit">Subir archivo</button>
+}
+</div>

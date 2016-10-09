@@ -4,7 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="511a0b09f16a4b0c949642874bbd7486" Name="Diagram1" />
+      <Diagram DiagramId="511a0b09f16a4b0c949642874bbd7486" Name="Diagram1" >
+        <EntityTypeShape EntityType="cubicomicModel.AspNetRoles" Width="2" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="cubicomicModel.AspNetUserClaims" Width="2" PointX="6.75" PointY="4.25" />
+        <EntityTypeShape EntityType="cubicomicModel.AspNetUserLogins" Width="2" PointX="6.75" PointY="1.25" />
+        <EntityTypeShape EntityType="cubicomicModel.AspNetUsers" Width="2" PointX="3.875" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="cubicomicModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="cubicomicModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="cubicomicModel.AspNetUserRoles" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

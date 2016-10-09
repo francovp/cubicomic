@@ -1,32 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace cubicomic.Controllers
 {
-    public class MemberPagesController : Controller
+    public class MiembrosController : Controller
     {
-        // GET: MemberPages
-        public ActionResult Index()
+        // GET: Miembros
+        public ActionResult Perfil()
         {
             return View();
         }
 
-        // GET: MemberPages/Details/5
+        public ActionResult Galeria()
+        {
+            return View();
+        }
+
+        // GET: Miembros/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: MemberPages/Create
+        // GET: Miembros/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: MemberPages/Create
+        // POST: Miembros/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -42,13 +43,13 @@ namespace cubicomic.Controllers
             }
         }
 
-        // GET: MemberPages/Edit/5
+        // GET: Miembros/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: MemberPages/Edit/5
+        // POST: Miembros/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -64,13 +65,13 @@ namespace cubicomic.Controllers
             }
         }
 
-        // GET: MemberPages/Delete/5
+        // GET: Miembros/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: MemberPages/Delete/5
+        // POST: Miembros/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
