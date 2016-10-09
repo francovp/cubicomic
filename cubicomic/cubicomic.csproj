@@ -208,6 +208,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Img\Index\collague_autores_famosos.jpg" />
+    <Content Include="Img\Index\creando_manga_1.jpg" />
+    <Content Include="Img\Index\creando_manga_2.jpg" />
+    <Content Include="Img\Index\escribiendo_1.jpg" />
+    <Content Include="Img\Index\escribiendo_2.jpg" />
+    <Content Include="Img\Index\logo.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Datos\Model1.Context.tt">
@@ -248,6 +254,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\file.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -312,7 +319,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49194</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
