@@ -19,12 +19,21 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("CubiComic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+              
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Featured", "Index", "MostrarAll")</li>
+                    <li>
+                    <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                    <input class="form-control" type="text" />
+                    </div>
+                    <button type="submit" class="btn btn-default">
+                    Buscar
+                    </button>
+                    </form>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -35,11 +44,18 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - CubiComic</p>
+            <p>
+            <ul class="nav nav-pills">
+                <li role="presentation" class="enable">   @Html.ActionLink("Contacto", "Contact", "Home")</li>
+                <li role="presentation" class="enable">  @Html.ActionLink("Acerca de", "About", "Home")</li>
+                <li role="presentation" class="enable">  @Html.ActionLink("subir imagen", "Index", "SubirImagen")</li>
+            </ul></p>
         </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+       
+    </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

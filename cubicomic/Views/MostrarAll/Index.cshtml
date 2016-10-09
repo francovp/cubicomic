@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach (var item in ViewBag.lista)
+{
+    <img src="~/Uploads/@item" width="300" height="300" alt="" />
+}
+    
