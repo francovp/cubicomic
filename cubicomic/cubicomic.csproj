@@ -271,6 +271,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\CubiComic %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\CubiComic - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -337,9 +338,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Uploads\" />
-	<Folder Include="Datos\Mangas\" />
+    <Folder Include="Datos\Mangas\" />
     <Folder Include="Datos\Novelas\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

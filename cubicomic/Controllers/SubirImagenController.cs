@@ -15,43 +15,23 @@ namespace cubicomic.Controllers
             return View();
         }
 
+        [HttpPost]
         public void Subir(HttpPostedFileBase file)
         {
-            // Nombre de la imagen
-            string nombre = file.FileName.Substring(
-              0, file.FileName.LastIndexOf("."));
-            // Extensión del archivo
-            string ext = nombre.Substring(nombre.LastIndexOf(".") + 1);
-            // Tipo de contenido
-            byte[] imagen = new byte[file.InputStream.Length];
-            file.InputStream.Read(imagen, 0, imagen.Length);
-            // Se insertan los valores en la base de datos
-            SqlConnection cnx = GetConnection();
-            try
+            
+            string targetPath = @"~/Uploads/";
+            if (!System.IO.Directory.Exists(targetPath))
             {
-                cnx.Open();
-                SqlCommand cmd = cnx.CreateCommand();
-                cmd.CommandText =
-                  "INSERT INTO Imagenes (nombre, imagen, extension) " +
-                  "VALUES (@nombre, @imagen, @ext)";
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-                cmd.Parameters.AddWithValue("@imagen", imagen);
-                cmd.Parameters.AddWithValue("@ext", ext);
-                cmd.ExecuteNonQuery();
+                System.IO.Directory.CreateDirectory(targetPath);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (cnx != null)
-                {
-                    if (cnx.State == ConnectionState.Open)
-                        cnx.Close();
-                    cnx.Dispose();
-                }
-            }
+            if (file == null) return;
+            
+
+            string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower();
+
+            file.SaveAs(Server.MapPath("~/Uploads/" + archivo));
+
+            
         }
     }
 
