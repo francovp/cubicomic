@@ -18,12 +18,7 @@ namespace cubicomic.Controllers
         [HttpPost]
         public void Subir(HttpPostedFileBase file)
         {
-            
-            string targetPath = @"~/Uploads/";
-            if (!System.IO.Directory.Exists(targetPath))
-            {
-                System.IO.Directory.CreateDirectory(targetPath);
-            }
+    
             if (file == null) return;
             
 
