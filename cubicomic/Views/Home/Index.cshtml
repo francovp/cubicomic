@@ -1,17 +1,18 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
-<br />
 
-<div class="row" <!-- Logo empresarial -->
+<br />
+<!-- Logo empresarial -->
+<div class="row" 
 	<center>
-	<img src="../../Img/Index/logo.png" alt="logo" style="width:531px;height:113px;"/>
+	    <img src="../../Img/Index/logo.png" alt="logo" style="width:531px;height:113px;"/>
     </center>
 </div>
 
 <br />
-
-<div class="container-fluid"><!-- imagenes con javascript -->
+    <!-- imagenes con javascript -->
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="carousel slide" id="carousel-index">
@@ -70,13 +71,13 @@
 </div>
 
 <br /><br />
-
-<div class="jumbotron" id="protector">
-  
+    <!-- Link a crear pagina -->
+<div class="jumbotron" id="protector"  style="background-image:url(../../Img/Index/collague_logo_empresa_1.png) ">
     <P ALIGN=center class="lead">Comienza a ganar dinero con tus creaciones </P>
-    <p><center>
-        @Html.ActionLink("Crea tu pagina hoy!", "Register", "Account", routeValues: null, htmlAttributes: new { @class="btn btn-primary btn-lg", id = "registerLink" })
-
+    <p>
+        <center>
+            @Html.ActionLink("Crea tu pagina hoy!", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-primary btn-lg", id = "registerLink" })
+        </center>
     </p>
 </div>
 
