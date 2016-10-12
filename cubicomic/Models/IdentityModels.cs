@@ -16,6 +16,8 @@ namespace cubicomic.Models
             // Agregar aquí notificaciones personalizadas de usuario
             return userIdentity;
         }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
