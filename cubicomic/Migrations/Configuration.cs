@@ -5,15 +5,15 @@ namespace cubicomic.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<cubicomic.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<cubicomic.DAL.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "cubicomic.Models.ApplicationDbContext";
+            ContextKey = "cubicomic.DAL.ApplicationDbContext";
         }
 
-        protected override void Seed(cubicomic.Models.ApplicationDbContext context)
+        protected override void Seed(cubicomic.DAL.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
