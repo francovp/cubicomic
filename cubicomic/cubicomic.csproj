@@ -258,6 +258,8 @@
   <ItemGroup>
     <Content Include="Content\perfil.css" />
     <Content Include="Img\Index\collague_autores_famosos.jpg" />
+    <Content Include="Img\Index\collague_logo_empresa_1.png" />
+    <Content Include="Img\Index\collague_logo_empresa_2.png" />
     <Content Include="Img\Index\creando_manga_1.jpg" />
     <Content Include="Img\Index\creando_manga_2.jpg" />
     <Content Include="Img\Index\escribiendo_1.jpg" />
