@@ -15,6 +15,11 @@ namespace cubicomic.Controllers
             return View();
         }
 
+        public ActionResult ConfigCuenta()
+        {
+            return View();
+        }
+
         // GET: Miembros/Details/5
         public ActionResult Details(int id)
         {
