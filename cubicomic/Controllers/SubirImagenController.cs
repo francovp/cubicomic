@@ -20,8 +20,7 @@ namespace cubicomic.Controllers
         {
     
             if (file == null) return;
-            
-
+           
             string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower();
 
             file.SaveAs(Server.MapPath("~/Uploads/" + archivo));
