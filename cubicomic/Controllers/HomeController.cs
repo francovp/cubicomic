@@ -15,7 +15,7 @@ namespace cubicomic.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "";
+            ViewBag.Message = "Que Somos";
 
             return View();
         }
