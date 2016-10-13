@@ -30,6 +30,9 @@ namespace cubicomic
             bundles.Add(new StyleBundle("~/Content/css-perfil").Include(
                       "~/Content/perfil.css"));
 
+            bundles.Add(new StyleBundle("~/Content/css-tipovisual").Include(
+                      "~/Content/tipovisual.css"));
+
         }
     }
 }
