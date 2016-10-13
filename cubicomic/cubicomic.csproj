@@ -329,10 +329,7 @@
     <Content Include="Views\Miembros\Perfil.cshtml" />
     <Content Include="Views\Miembros\Galeria.cshtml" />
     <Content Include="Views\SubirImagen\Index.cshtml" />
-    <Content Include="Views\BuscarCategoria\Index.cshtml" />
     <Content Include="Views\MostrarAll\Index.cshtml" />
-    <Content Include="Views\MostrarAll\Lateral.cshtml" />
-    <Content Include="Views\MostrarAll\Centro.cshtml" />
     <Content Include="Views\Miembros\ConfigCuenta.cshtml" />
     <Content Include="Views\Miembros\_CarouselPartial.cshtml" />
     <Content Include="Views\Miembros\_GaleriaPartial.cshtml" />
