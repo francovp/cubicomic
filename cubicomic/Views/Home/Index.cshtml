@@ -2,15 +2,16 @@
     ViewBag.Title = "Inicio";
 }
 
-<div class="row"> <!-- Logo empresarial -->
-<br />
-	<center>
-	    <img src="../../Img/Index/logo.png" alt="logo" style="width:531px;height:113px;"/>
+<div class="row">
+    <!-- Logo empresarial -->
+    <br />
+    <center>
+        <img src="../../Img/Index/logo.png" alt="logo" style="width:531px;height:113px;" />
     </center>
 </div>
 
 <br />
-    <!-- imagenes con javascript -->
+<!-- imagenes con javascript -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -70,33 +71,43 @@
 </div>
 
 <br /><br />
-    <!-- Link a crear pagina -->
-<div class="jumbotron" id="protector"  style="background-image:url(../../Img/Index/collague_logo_empresa_1.png) ">
+<!-- Link a crear pagina -->
+<div class="jumbotron" id="protector" style="background-image:url(../../Img/Index/collague_logo_empresa_1.png) ">
     <P ALIGN=center class="lead">Comienza a ganar dinero con tus creaciones </P>
-    <p><center>
-        @Html.ActionLink("Crea tu pagina hoy!", "Register", "Account", routeValues: null, htmlAttributes: new { @class="btn btn-primary btn-lg", id = "registerLink" })
+    <p>
+        <center>
+            @Html.ActionLink("Crea tu pagina hoy!", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-primary btn-lg", id = "registerLink" })
         </center>
     </p>
 </div>
 
+<br />
+<br />
+
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+    <div class="col-md-6">
+        <h2>Guia para comenzar a Dibujar</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            En este apartado te tenemos reunido una guía para que puedas comenzar
+            a dibujar con practicos consejos por parte de PaintAcademy con su curso
+            online "Manga para principiantes".
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=hPR-eoREElo&list=PL8wCHkGM2bu3PjpbqkPOxIBoEtqTFOBL6">Ver los tutoriales &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-6">
+        <h2>Consejos para escritores</h2>
+        <p>¿Te cuesta comenzar a escribir? Sigue estos practicos 10 consejos que nos brinda César Mallorquí de grupo Editorial SM para jovenes escritores. </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=ALhYXhT2W6w">Ver los consejos &raquo;</a></p>
     </div>
+    @*
+
+        Agregar uno mas y modificar columnas a 4
+    
     <div class="col-md-4">
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
+     *@
+
 </div>
