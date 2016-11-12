@@ -215,6 +215,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MiembrosController.cs" />
     <Compile Include="Controllers\MostrarAllController.cs" />
+    <Compile Include="Controllers\MostrarPDFController.cs" />
     <Compile Include="Controllers\SubirImagenController.cs" />
     <Compile Include="DAL\CubicomicConfiguration.cs" />
     <Compile Include="Extensions\ClaimsPrincipalExtension.cs" />
@@ -349,6 +350,7 @@
     <Content Include="Views\Miembros\_PerfilSidebarPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilTopPartial.cshtml" />
     <Content Include="Views\Miembros\_SubidorImagenInspiradorCarouselPartial.cshtml" />
+    <Content Include="Views\MostrarPDF\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
