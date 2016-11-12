@@ -1,13 +1,29 @@
 ﻿using System.Web.Mvc;
+using cubicomic.Models;
+using cubicomic.DAL;
+using Microsoft.AspNet.Identity;
+using System.Web;
+using Microsoft.AspNet.Identity.Owin;
+using System.Net;
+using cubicomic.ViewModels;
 
 namespace cubicomic.Controllers
 {
     public class MiembrosController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+        ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
         // GET: Miembros
         public ActionResult Perfil()
         {
-            return View();
+            PerfilViewModel model = new PerfilViewModel();
+            model.UserName = user.UserName;
+            model.FirstName = user.FirstName;
+            model.LastName = user.LastName;
+            model.CompleteName = user.FirstName + " " + user.LastName; 
+            model.Email = user.Email;
+            return View(model);
         }
 
         public ActionResult Galeria()
@@ -48,27 +64,68 @@ namespace cubicomic.Controllers
             }
         }
 
-        // GET: Miembros/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    ApplicationUser miembro = db.Include(s => s.Files).SingleOrDefault(s => s.ID == id);
+        //    if (miembro == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(miembro);
+        //}
 
-        // POST: Miembros/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+        // POST: miembro/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        //public ActionResult EditPost(int? id, HttpPostedFileBase upload)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var miembroToUpdate = db.miembros.Find(id);
+        //    if (TryUpdateModel(miembroToUpdate, "",
+        //       new string[] { "LastName", "FirstMidName", "EnrollmentDate" }))
+        //    {
+        //        try
+        //        {
+        //            if (upload != null && upload.ContentLength > 0)
+        //            {
+        //                if (miembroToUpdate.Files.Any(f => f.FileType == FileType.Avatar))
+        //                {
+        //                    db.Files.Remove(miembroToUpdate.Files.First(f => f.FileType == FileType.Avatar));
+        //                }
+        //                var avatar = new File
+        //                {
+        //                    FileName = System.IO.Path.GetFileName(upload.FileName),
+        //                    FileType = FileType.Avatar,
+        //                    ContentType = upload.ContentType
+        //                };
+        //                using (var reader = new System.IO.BinaryReader(upload.InputStream))
+        //                {
+        //                    avatar.Content = reader.ReadBytes(upload.ContentLength);
+        //                }
+        //                miembroToUpdate.Files = new List<File> { avatar };
+        //            }
+        //            db.Entry(miembroToUpdate).State = EntityState.Modified;
+        //            db.SaveChanges();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //            return RedirectToAction("Index");
+        //        }
+        //        catch (RetryLimitExceededException /* dex */)
+        //        {
+        //            //Log the error (uncomment dex variable name and add a line here to write a log.
+        //            ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+        //        }
+        //    }
+        //    return View(miembroToUpdate);
+        //}
 
         // GET: Miembros/Delete/5
         public ActionResult Delete(int id)
@@ -91,5 +148,6 @@ namespace cubicomic.Controllers
                 return View();
             }
         }
+
     }
 }

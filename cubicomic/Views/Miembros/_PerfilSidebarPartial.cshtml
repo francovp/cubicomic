@@ -1,4 +1,7 @@
-﻿<!-- SIDEBAR USERPIC -->
+﻿@using cubicomic.Extensions
+@model cubicomic.ViewModels.PerfilViewModel
+
+<!-- SIDEBAR USERPIC -->
 <div class="profile-userpic">
     <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
 </div>
@@ -6,11 +9,11 @@
 <!-- SIDEBAR USER TITLE -->
 <div class="profile-usertitle">
     <div class="profile-usertitle-name">
-        Marcus Doe
+        @Html.DisplayFor(model => model.CompleteName)
     </div>
-    <div class="profile-usertitle-job">
+    @*<div class="profile-usertitle-job">
         Developer
-    </div>
+    </div>*@
 </div>
 <!-- END SIDEBAR USER TITLE -->
 <!-- SIDEBAR BUTTONS -->
