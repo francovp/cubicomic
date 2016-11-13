@@ -367,6 +367,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Datos\Mangas\" />
     <Folder Include="Datos\Novelas\" />
+    <Folder Include="UploadsPDF\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>

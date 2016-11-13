@@ -104,8 +104,21 @@
                    
                     @foreach (var item in ViewBag.lista)
                     {
-                        <img src="Uploads/@item" width="300" height="300" alt="" />
+                        <img src="Uploads/@item" width="300" height="300"  />
                     }
+					@foreach(var item2 in ViewBag.muestraPDF){
+					<a href="@Url.Action(
+					"Index", 
+					"MostrarPDF",
+					new{
+					busqueda = item2
+					},
+					null
+					)">
+					<img src="@Url.Content("/Uploads/"+@item2)" width="300" height="300" />
+					</a>
+					
+					}
                    
                 </div>
 
