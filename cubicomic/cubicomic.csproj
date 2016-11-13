@@ -215,7 +215,9 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MiembrosController.cs" />
     <Compile Include="Controllers\MostrarAllController.cs" />
+    <Compile Include="Controllers\MostrarPDFController.cs" />
     <Compile Include="Controllers\SubirImagenController.cs" />
+    <Compile Include="Controllers\VisualisadorIMAGEController.cs" />
     <Compile Include="DAL\CubicomicConfiguration.cs" />
     <Compile Include="Extensions\ClaimsPrincipalExtension.cs" />
     <Compile Include="Global.asax.cs">
@@ -246,10 +248,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\lightbox.css" />
     <Content Include="Content\perfiltop.css" />
     <Content Include="Content\perfil.css" />
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\tipovisual.css" />
+    <Content Include="Img\close.png" />
     <Content Include="Img\Index\collague_autores_famosos.jpg" />
     <Content Include="Img\Index\collague_logo_empresa_1.png" />
     <Content Include="Img\Index\collague_logo_empresa_2.png" />
@@ -281,6 +285,12 @@
     <None Include="Properties\PublishProfiles\CubiComic %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic.pubxml" />
+    <Content Include="Img\loading.gif" />
+    <Content Include="Img\next.png" />
+    <Content Include="Img\prev.png" />
+    <Content Include="sass\_variables.sass" />
+    <Content Include="sass\screen.sass" />
+    <Content Include="sass\lightbox.sass" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Img\Index\mini_logo.png" />
@@ -298,6 +308,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lightbox-2.6.js" />
+    <Content Include="Scripts\lightbox-2.6.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
@@ -342,14 +354,14 @@
     <Content Include="Views\SubirImagen\Index.cshtml" />
     <Content Include="Views\BuscarCategoria\Index.cshtml" />
     <Content Include="Views\MostrarAll\Index.cshtml" />
-    <Content Include="Views\MostrarAll\Lateral.cshtml" />
-    <Content Include="Views\MostrarAll\Centro.cshtml" />
     <Content Include="Views\Miembros\ConfigCuenta.cshtml" />
     <Content Include="Views\Miembros\_CarouselPartial.cshtml" />
     <Content Include="Views\Miembros\_GaleriaPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilSidebarPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilTopPartial.cshtml" />
     <Content Include="Views\Miembros\_SubidorImagenInspiradorCarouselPartial.cshtml" />
+    <Content Include="Views\MostrarPDF\index.cshtml" />
+    <Content Include="Views\VisualisadorIMAGE\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
