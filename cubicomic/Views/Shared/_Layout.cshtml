@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - CubiComic</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css-site")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -18,12 +19,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CubiComic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("CubiComic", "Index", "Home", new { area = "" , @class = "navbar-brand" })*@
+
+                <a href="@Url.Action("Index", "Home")" title="cubicomic" class="navbar-brand">
+                    <img class="nav-logo" alt="CubiComic" src="@Url.Content("~/Img/Index/logoSmall.png")" >
+                </a>
               
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Featured", "Index", "MostrarAll")</li>
+                    <li>@Html.ActionLink("Destacados", "Index", "MostrarAll")</li>
                     <li>
                     <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">

@@ -1,113 +1,74 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
-
-<div class="row">
-    <!-- Logo empresarial -->
-    <br />
-    <center>
-        <img src="../../Img/Index/logo.png" alt="logo" style="width:531px;height:113px;" />
-    </center>
-</div>
-
-<br />
-<!-- imagenes con javascript -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="carousel slide" id="carousel-index">
-                <ol class="carousel-indicators">
-                    <li class="active" data-slide-to="0" data-target="#carousel-index">
-                    </li>
-                    <li data-slide-to="1" data-target="#carousel-index">
-                    </li>
-                    <li data-slide-to="2" data-target="#carousel-index">
-                    </li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img alt="creando_manga_1" src="../../Img/Index/creando_manga_1.jpg" style="width:1200px;height:350px;" />
-                        <div class="carousel-caption">
-                            <h4>
-                                Emprende tu propio Manga
-                            </h4>
-                            <p>
-                                Si tienes ganas de empezar tu propio manga empieza publicando con nosotros, podras conseguir seguidores de tu trabajo más aya de tus amigos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img alt="escribiendo_1" src="../../Img/Index/escribiendo_1.jpg" style="width:1200px;height:350px;" />
-                        <div class="carousel-caption">
-                            <h4>
-                                Haz tu propia Novela
-                            </h4>
-                            <p>
-                                Plasma ese mundo que sueñas y visualizas en una historia que logre cautivar a nuestros lectores, motivanos con esas historias de battalas, esas aventuras fantasticas o lo que este en tu mente y quieras escribir.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img alt="creando_manga_2" src="../../Img/Index/creando_manga_2.jpg" style="width:1200px;height:350px;" />
-                        <div class="carousel-caption">
-                            <h4>
-                                Convierte tu Hobby en Dinero
-                            </h4>
-                            <p>
-                                Nuestros usuarios podran acceder a contenido pagado de nuestros creadores, para insentivarlos a seguir con sus obras y poder disfrutar de ellas hasta su finalización.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <a class="left carousel-control" href="#carousel-index" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-index" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
+@if (Request.IsAuthenticated)
+{
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("../Shared/_SubidorImagenInspiradorCarouselPartial")
             </div>
         </div>
     </div>
-</div>
-
-<br /><br />
-<!-- Link a crear pagina -->
-<div class="jumbotron" id="protector" style="background-image:url(../../Img/Index/collague_logo_empresa_1.png) ">
-    <P ALIGN=center class="lead">Comienza a ganar dinero con tus creaciones </P>
-    <p>
+}
+else
+{
+    <div class="jumbotron">
+        <!-- imagenes con javascript -->
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("../Shared/_BienvenidaCarouselPartial")
+            </div>
+        </div>
+        <br /><br />
+        <!-- Logo empresarial -->
+        @*<center>
+            <img src="../../Img/Index/logo.png" alt="logo" style="width:531px;height:113px;" />
+        </center*@
         <center>
-            @Html.ActionLink("Crea tu pagina hoy!", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-primary btn-lg", id = "registerLink" })
+            <img src="../../Img/Index/collague_logo_empresa_1.png" alt="logo" style="width:100%; height:100%;" />
         </center>
-    </p>
-</div>
+        <br /><br />
+        <!-- Link a crear pagina -->
+        <div id="protector">
+            <P ALIGN=center class="lead">Comienza a ganar dinero con tus creaciones </P>
+            <p>
+                <center>
+                    @Html.ActionLink("Crea tu pagina hoy!", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-primary btn-lg", id = "registerLink" })
+                </center>
+            </p>
 
-<br />
-<br />
 
-<div class="row">
-    <div class="col-md-6">
-        <h2>Guia para comenzar a Dibujar</h2>
-        <p>
-            En este apartado te tenemos reunido una guía para que puedas comenzar
-            a dibujar con practicos consejos por parte de PaintAcademy con su curso
-            online "Manga para principiantes".
-        </p>
-        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=hPR-eoREElo&list=PL8wCHkGM2bu3PjpbqkPOxIBoEtqTFOBL6">Ver los tutoriales &raquo;</a></p>
+            <br />
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Guia para comenzar a Dibujar</h2>
+                    <p>
+                        En este apartado te tenemos reunido una guía para que puedas comenzar
+                        a dibujar con practicos consejos por parte de PaintAcademy con su curso
+                        online "Manga para principiantes".
+                    </p>
+                    <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=hPR-eoREElo&list=PL8wCHkGM2bu3PjpbqkPOxIBoEtqTFOBL6">Ver los tutoriales &raquo;</a></p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Consejos para escritores</h2>
+                    <p>¿Te cuesta comenzar a escribir? Sigue estos practicos 10 consejos que nos brinda César Mallorquí de grupo Editorial SM para jovenes escritores. </p>
+                    <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=ALhYXhT2W6w">Ver los consejos &raquo;</a></p>
+                </div>
+                @*
+
+                        Agregar uno mas y modificar columnas a 4
+
+                    <div class="col-md-4">
+                        <h2>Web Hosting</h2>
+                        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                    </div>
+                *@
+
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-        <h2>Consejos para escritores</h2>
-        <p>¿Te cuesta comenzar a escribir? Sigue estos practicos 10 consejos que nos brinda César Mallorquí de grupo Editorial SM para jovenes escritores. </p>
-        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=ALhYXhT2W6w">Ver los consejos &raquo;</a></p>
-    </div>
-    @*
-
-        Agregar uno mas y modificar columnas a 4
-    
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-     *@
-
-</div>
+}

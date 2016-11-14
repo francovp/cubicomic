@@ -1,12 +1,11 @@
 ﻿@model cubicomic.ViewModels.PerfilViewModel
 @using Microsoft.AspNet.Identity
-
+@Styles.Render("~//Content/css-perfil")
+@Styles.Render("~//Content/css-galeria")
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <br /><br />
-                @Html.Partial("_SubidorImagenInspiradorCarouselPartial")
                 <!-- start: Content -->
                 <div id="content" class="col-lg-10 col-sm-11 ">
 
@@ -73,7 +72,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane fade" id="galeria">
-                                        @Html.Partial("_GaleriaPartial")
+                                        @Html.Partial("_GaleriaPartial2")
                                     </div>
                                 </div>
 
