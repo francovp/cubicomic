@@ -1,6 +1,5 @@
 ﻿@using cubicomic.Extensions
 @model cubicomic.ViewModels.PerfilViewModel
-@Styles.Render("~//Content/css-perfil")
 
 <!-- SIDEBAR USERPIC -->
 <div class="profile-userpic">
@@ -11,7 +10,6 @@
 <div class="profile-usertitle">
     <div class="profile-usertitle-name">
         @Html.DisplayFor(model => model.CompleteName)
-        <br />
     </div>
     @*<div class="profile-usertitle-job">
         Developer
@@ -19,8 +17,8 @@
 </div>
 <!-- END SIDEBAR USER TITLE -->
 <!-- SIDEBAR BUTTONS -->
-<div class="profile-userbuttons">
+@*<div class="profile-userbuttons">
     <button type="button" class="btn btn-success btn-sm">Seguir</button>
     <button type="button" class="btn btn-danger btn-sm">Mensaje</button>
-</div>
+</div>*@
 <!-- END SIDEBAR BUTTONS -->

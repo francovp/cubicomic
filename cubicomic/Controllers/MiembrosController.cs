@@ -6,6 +6,8 @@ using System.Web;
 using Microsoft.AspNet.Identity.Owin;
 using System.Net;
 using cubicomic.ViewModels;
+using System.IO;
+using System.Collections.Generic;
 
 namespace cubicomic.Controllers
 {
@@ -17,12 +19,29 @@ namespace cubicomic.Controllers
         // GET: Miembros
         public ActionResult Perfil()
         {
+            //Datos del usuario
             PerfilViewModel model = new PerfilViewModel();
             model.UserName = user.UserName;
             model.FirstName = user.FirstName;
             model.LastName = user.LastName;
             model.CompleteName = user.FirstName + " " + user.LastName; 
             model.Email = user.Email;
+
+            //Archivos 
+
+            List<string> listaRutaImagenes = new List<string>();
+            var carpeta = Server.MapPath("~") + @"Uploads";
+            //Necesitas: using System.IO; para realizar esto
+            DirectoryInfo d = new DirectoryInfo(carpeta);
+            //Obtenemos todos los .jpg
+            FileInfo[] Files = d.GetFiles("*.*");
+            //Recorremos la carpeta
+            foreach (FileInfo file in Files)
+            {
+                listaRutaImagenes.Add(file.Name);
+            }
+            ViewBag.lista = listaRutaImagenes;
+
             return View(model);
         }
 

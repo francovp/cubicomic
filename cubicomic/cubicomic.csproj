@@ -40,7 +40,7 @@
         <ObjectGroup Name="cubicomicEntities-Deployment" Order="2">
           <Destination Path="" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=cubimundo.database.windows.net%3binitial catalog=cubicomic%3bpersist security info=True%3buser id=francovp%3bpassword=tlozOOT8569%40%3bapplication name=EntityFramework%3bMultipleActiveResultSets=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=cubimundotest.database.windows.net%3bInitial Catalog=cubicomic.Test%3bPersist Security Info=False%3bUser ID=francovp%3bpassword=tlozOOT8569%40%3bapplication name=EntityFramework%3bMultipleActiveResultSets=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Debug\AutoScripts\cubicomicEntities-Deployment_SchemaAndData.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
@@ -251,6 +251,7 @@
     <Content Include="Content\lightbox.css" />
     <Content Include="Content\perfiltop.css" />
     <Content Include="Content\perfil.css" />
+    <Content Include="Content\galeria2.css" />
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\tipovisual.css" />
     <Content Include="Img\close.png" />
@@ -275,7 +276,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -352,16 +353,17 @@
     <Content Include="Views\Miembros\Perfil.cshtml" />
     <Content Include="Views\Miembros\Galeria.cshtml" />
     <Content Include="Views\SubirImagen\Index.cshtml" />
-    <Content Include="Views\BuscarCategoria\Index.cshtml" />
     <Content Include="Views\MostrarAll\Index.cshtml" />
     <Content Include="Views\Miembros\ConfigCuenta.cshtml" />
     <Content Include="Views\Miembros\_CarouselPartial.cshtml" />
     <Content Include="Views\Miembros\_GaleriaPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilSidebarPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilTopPartial.cshtml" />
-    <Content Include="Views\Miembros\_SubidorImagenInspiradorCarouselPartial.cshtml" />
+    <Content Include="Views\Shared\_SubidorImagenInspiradorCarouselPartial.cshtml" />
     <Content Include="Views\MostrarPDF\index.cshtml" />
     <Content Include="Views\VisualisadorIMAGE\Index.cshtml" />
+    <Content Include="Views\Miembros\_GaleriaPartial2.cshtml" />
+    <Content Include="Views\Shared\_BienvenidaCarouselPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -369,6 +371,7 @@
     <Folder Include="Datos\Novelas\" />
     <Folder Include="UploadsPDF\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Views\BuscarCategoria\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

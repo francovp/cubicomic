@@ -35,6 +35,12 @@ namespace cubicomic
 					  
             bundles.Add(new StyleBundle("~/Content/css-tipovisual").Include(
                       "~/Content/tipovisual.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css-sidebar").Include(
+                      "~/Content/sidebar.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css-galeria").Include(
+                      "~/Content/galeria2.css"));
         }
     }
 }
