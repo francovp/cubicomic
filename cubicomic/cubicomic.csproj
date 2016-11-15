@@ -253,6 +253,7 @@
     <Content Include="Content\perfil.css" />
     <Content Include="Content\galeria2.css" />
     <Content Include="Content\sidebar.css" />
+    <Content Include="Content\mostrarall.css" />
     <Content Include="Content\tipovisual.css" />
     <Content Include="Img\close.png" />
     <Content Include="Img\Index\collague_autores_famosos.jpg" />
@@ -288,6 +289,19 @@
     <None Include="Properties\PublishProfiles\CubiComic.pubxml" />
     <Content Include="Img\loading.gif" />
     <Content Include="Img\next.png" />
+    <Content Include="Img\Patrones\patron_1.jpg" />
+    <Content Include="Img\Patrones\patron_10.jpg" />
+    <Content Include="Img\Patrones\patron_11.jpg" />
+    <Content Include="Img\Patrones\patron_12.jpg" />
+    <Content Include="Img\Patrones\patron_13.jpg" />
+    <Content Include="Img\Patrones\patron_2.jpg" />
+    <Content Include="Img\Patrones\patron_3.jpg" />
+    <Content Include="Img\Patrones\patron_4.jpeg" />
+    <Content Include="Img\Patrones\patron_5.jpg" />
+    <Content Include="Img\Patrones\patron_6.jpg" />
+    <Content Include="Img\Patrones\patron_7.jpg" />
+    <Content Include="Img\Patrones\patron_8.jpg" />
+    <Content Include="Img\Patrones\patron_9.jpg" />
     <Content Include="Img\prev.png" />
     <Content Include="sass\_variables.sass" />
     <Content Include="sass\screen.sass" />
