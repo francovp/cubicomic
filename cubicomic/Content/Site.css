@@ -7,13 +7,21 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-.nav-logo {
-    width: 100%;
-    height: 170%;
-    position: relative;
-    top: -12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    /*align-items: center;*/
+    /*Genera que 'header-button' no muestre bien el botón*/
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%
 }
 
 /* Ov-1pxe the default bootstrap behavior where horizontal description lists 
@@ -73,4 +81,99 @@ textarea {
 
 .search-query:focus {
     width: 260px;
+}
+
+/* CUSTOM */
+
+/* /Shared/_Layout */
+.nav-logo {
+    width: 100%;
+    height: 170%;
+    position: relative;
+    top: -12px;
+}
+
+/* /Home/Index */
+
+.header.home-index {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    height: 28vw;
+    min-height: 14rem;
+    width: 100%;
+    position: relative;
+}
+
+.header-content{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    /*align-items: center;*/
+    /*Genera que 'header-button' no muestre bien el botón*/
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%
+}
+
+p.header-slogan.home-index {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 20px rgb(0, 0, 0);
+    font-size: 40px;
+    font-weight: 900;
+}
+
+small.header-slogan-footer.home-index {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 4px rgba(0,0,0,.5);
+}
+
+.header-slogan-button.home-index- {
+    color: #fff;
+    border: 1px solid #e6461a;
+    background-color: #e6461a;
+    -webkit-transition: all .2s cubic-bezier(.19,1,.22,1)!important;
+    transition: all .2s cubic-bezier(.19,1,.22,1)!important;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+/* /Shared/_SubidorImagenInspiradorCarouselPartial */
+p.subidorimageninspirador-carousel-caption {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 20px rgb(0, 0, 0);
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.img-responsive, .thumbnail > img,
+ .thumbnail a > img,
+ .carousel-inner > .item > img,
+ .carousel-inner > .item > a > img {
+    width: 100%;
+    height: 300px;
+}
+
+.carousel.slide.custom {
+    width: 100%;
+    height: 300px;
+}
+
+/* /Account/Register*/
+
+.register-form {
+    text-align: center;
 }

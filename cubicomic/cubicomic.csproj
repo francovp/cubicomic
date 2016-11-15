@@ -359,11 +359,13 @@
     <Content Include="Views\Miembros\_GaleriaPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilSidebarPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilTopPartial.cshtml" />
-    <Content Include="Views\Shared\_SubidorImagenInspiradorCarouselPartial.cshtml" />
+    <Content Include="Views\Home\_SubidorImagenInspiradorCarouselPartial.cshtml" />
     <Content Include="Views\MostrarPDF\index.cshtml" />
     <Content Include="Views\VisualisadorIMAGE\Index.cshtml" />
     <Content Include="Views\Miembros\_GaleriaPartial2.cshtml" />
-    <Content Include="Views\Shared\_BienvenidaCarouselPartial.cshtml" />
+    <Content Include="Views\Home\_BienvenidaCarouselPartial.cshtml" />
+    <Content Include="Views\Home\_BienvenidaHeaderPartial.cshtml" />
+    <Content Include="Views\Home\_ConsejosPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
