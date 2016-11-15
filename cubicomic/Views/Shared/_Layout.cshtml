@@ -5,8 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - CubiComic</title>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/css-site")
+
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/site.css" />
+    
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -44,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid">
         @RenderBody()
         <hr />
         <footer>
