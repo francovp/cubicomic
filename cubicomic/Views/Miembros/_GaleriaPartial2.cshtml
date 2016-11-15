@@ -1,4 +1,6 @@
-﻿<div class="row">
+﻿<link rel="stylesheet" href="~/Content/galeria2.css" />
+
+<div class="row">
     <br />
     @{
         var i = 1;
@@ -6,7 +8,7 @@
         {
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img src="../Uploads/@item" onclick="openModal();currentSlide(@i)" style="width:100%" class="img-responsive" alt="">
+                    <img src="../Uploads/@item" onclick="openModal();currentSlide(@i)" class="img-responsive" alt="" style="width:100%; height: 100%;" >
                 </a>
             </div>
             i = i + 1;
@@ -19,21 +21,24 @@
     <br /><br />
     <span class="close cursor" onclick="closeModal()">&times;</span>
     <div class="modal-content">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
         @{
             i = 1;
             foreach (var item in ViewBag.lista)
             {
-                <div class="mySlides">
-                    <div class="numbertext">@i / @total</div>
-                    <img class="img-responsive" src="../Uploads/@item" alt="" >
-                </div>
+                <center>
+                    <div class="mySlides">
+                        <div class="numbertext">@i / @total</div>
+                        <img class="img-responsive" src="../Uploads/@item" alt="" style="width: 60%; height: 60%">
+                    </div>
+                </center>
                 i = i + 1;
             }
         }
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
+        <br /><br />
         <div class="caption-container">
             <p id="caption"></p>
         </div>
