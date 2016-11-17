@@ -6,6 +6,6 @@
 <div>
     @using (Html.BeginForm("subir", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="file" /> <button type="submit">Subir archivo</button>
+    <input type="file" multiple="multiple" name="file" /> <button type="submit">Subir archivo</button>
 }
 </div>

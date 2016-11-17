@@ -16,15 +16,17 @@ namespace cubicomic.Controllers
         }
 
         [HttpPost]
-        public void Subir(HttpPostedFileBase file)
+        public void Subir(IEnumerable<HttpPostedFileBase> file)
         {
             if (file == null) return;
-
-            string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower();
-
-            file.SaveAs(Server.MapPath("~/Uploads/" + archivo));
-
-           
+            foreach (var files in file)
+            {
+                if (files != null && files.ContentLength > 0)
+                {
+                    string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + files.FileName).ToLower();
+                    files.SaveAs(Server.MapPath("~/Uploads/" + archivo));
+                }
+            }
         }
     }
 

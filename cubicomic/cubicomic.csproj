@@ -380,6 +380,8 @@
     <Content Include="Views\Home\_BienvenidaCarouselPartial.cshtml" />
     <Content Include="Views\Home\_BienvenidaHeaderPartial.cshtml" />
     <Content Include="Views\Home\_ConsejosPartial.cshtml" />
+    <Content Include="Views\Home\_NuevoContenidoComicPartial.cshtml" />
+    <Content Include="Views\Home\_NuevoContenidoNovelasPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
