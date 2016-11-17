@@ -1,103 +1,69 @@
 ﻿<link rel="stylesheet" href="~/Content/mostrarall.css" />
+<br /><br /><br /><br />
+<div class="row">
+	<div class="col-md-9">
+		<div class="row">
 
-<header id="header">
-    <div class="innertube">
-        <h1>Header...</h1>
-    </div>
-</header>
-<div id="mainwrapper">
+			@foreach (var item in ViewBag.lista)
+			{
+				<div class="col-md-3">
+					<img src="Uploads/@item" width="300" height="300" />
+				</div>
+			}
+			@foreach (var item2 in ViewBag.muestraPDF)
+			{
+				<div class="col-md-3">
+					<a class="viewbag-muestrapdf-mostrarall-index" href="@Url.Action(
+							"Index",
+							"MostrarPDF",
+							new{
+							busqueda = item2
+						},
+						null
+						)">
+						<img src="@Url.Content("/Uploads/"+@item2)" width="300" height="300" />
+					</a>
+				</div>
 
-    <div id="contentwrapper">
-        <div id="content">
-            <div class="innertube">
-                <h3>     </h3>
+			}
+		</div>
+	</div>
+	<div class="col-md-3">
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="innertube">
+				<h3>Categorias</h3>
+				<ul>
+					<li><a href="#">Todos</a></li>
+					<li><a href="#">Mangas</a></li>
+					<li><a href="#">Comics</a></li>
+					<li><a href="#">Novelas</a></li>
 
-                @foreach (var item in ViewBag.lista)
-                {
-                    <img src="Uploads/@item" width="300" height="300" />
-                }
-                @foreach (var item2 in ViewBag.muestraPDF)
-                {
-                    <a href="@Url.Action(
-					"Index",
-					"MostrarPDF",
-					new{
-					busqueda = item2
-					},
-					null
-					)">
-                        <img src="@Url.Content("/Uploads/"+@item2)" width="300" height="300" />
-                    </a>
-
-                }
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    @*  TODO
-            Gonzalo ¿esto que es?
-        <nav id="leftmenu">
-            <div class="innertube">
-                <p>
-                    <h1>CHUPALOOOO</h1>
-                    <script type="text/javascript">generateText(5)</script>
-                </p>
-            </div>
-        </nav>*@
-
-    <nav class="navbar navbar-inverse" role="navigation" id="rightmenu">
-        <div class="innertube">
-            <h3>Categorias</h3>
-            <ul>
-                <li><a href="#">Todos</a></li>
-                <li><a href="#">Mangas</a></li>
-                <li><a href="#">Comics</a></li>
-                <li><a href="#">Novelas</a></li>
-
-            </ul>
-            <h3>Géneros de mangas</h3>
-            <ul>
-                <li><a href="#">Shōnen</a></li>
-                <li><a href="#">josei</a></li>
-                <li><a href="#">Kodomo</a></li>
-                <li><a href="#">Seinen</a></li>
-                <li><a href="#">shōjo</a></li>
-            </ul>
-            <h3>Géneros de comics</h3>
-            <ul>
-                <li><a href="#">Acción</a></li>
-                <li><a href="#">Comedia</a></li>
-                <li><a href="#">Terror</a></li>
-                <li><a href="#">Historia de Vidas</a></li>
-                <li><a href="#">Sobrenatural</a></li>
-            </ul>
-            <h3>Géneros de Novelas</h3>
-            <ul>
-                <li><a href="#">Acción</a></li>
-                <li><a href="#">Comedia</a></li>
-                <li><a href="#">Terror</a></li>
-                <li><a href="#">Historia de Vidas</a></li>
-                <li><a href="#">Sobrenatural</a></li>
-            </ul>
-        </div>
-    </nav>
-
-
-
+				</ul>
+				<h3>Géneros de mangas</h3>
+				<ul>
+					<li><a href="#">Shōnen</a></li>
+					<li><a href="#">josei</a></li>
+					<li><a href="#">Kodomo</a></li>
+					<li><a href="#">Seinen</a></li>
+					<li><a href="#">shōjo</a></li>
+				</ul>
+				<h3>Géneros de comics</h3>
+				<ul>
+					<li><a href="#">Acción</a></li>
+					<li><a href="#">Comedia</a></li>
+					<li><a href="#">Terror</a></li>
+					<li><a href="#">Historia de Vidas</a></li>
+					<li><a href="#">Sobrenatural</a></li>
+				</ul>
+				<h3>Géneros de Novelas</h3>
+				<ul>
+					<li><a href="#">Acción</a></li>
+					<li><a href="#">Comedia</a></li>
+					<li><a href="#">Terror</a></li>
+					<li><a href="#">Historia de Vidas</a></li>
+					<li><a href="#">Sobrenatural</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
 </div>
-<footer id="footer">
-    <div class="innertube">
-    </div>
-</footer>
-
-<script type="text/javascript">
-    /* =============================
-    This script generates sample text for the body content.
-    You can remove this script and any reference to it.
-     ============================= */
-
-</script>
