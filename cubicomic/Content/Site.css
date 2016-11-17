@@ -1,4 +1,5 @@
 ﻿body {
+    background: #E8EBEB;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -85,6 +86,58 @@ textarea {
 
 /* CUSTOM */
 
+.btn.cubicomic-button.button-with-icon-box {
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 0 40px;
+    font-weight: 400;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.btn.cubicomic-button.button-size-fluid {
+    width: 100%;
+}
+
+.btn.cubicomic-button.button-login-facebook {
+    background: #26599a;
+}
+
+.cubicomic-button, a.cubicomic-button {
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    background: #586A72;
+    color: #FFF;
+    border: 0;
+    font-size: 14px;
+    padding: 0 20px;
+    line-height: 39px;
+    height: 40px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 700;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    zoom: 1;
+    filter: alpha(opacity=100);
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-transition-property: opacity,background;
+    -moz-transition-property: opacity,background;
+    -o-transition-property: opacity,background;
+    transition-property: opacity,background;
+}
+
 /* /Shared/_Layout */
 .nav-logo {
     width: 100%;
@@ -150,6 +203,42 @@ small.header-slogan-footer.home-index {
     margin: 0 auto;
 }
 
+/* /Shared/Account/Register */
+
+.formulario-registro {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.formulario-registro .btn{
+    position:relative;
+    left : -20px;
+}
+
+/* /Shared/Account/Login */
+
+.formulario-login {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.formulario-login #botonEnviarFormularioIniciarSesion {
+    position:relative;
+    left : -30px;
+}
+
 /* /Shared/_SubidorImagenInspiradorCarouselPartial */
 p.subidorimageninspirador-carousel-caption {
     text-align: center;
@@ -176,4 +265,11 @@ p.subidorimageninspirador-carousel-caption {
 
 .register-form {
     text-align: center;
+}
+
+/* MostrarAll/Index */
+.viewbag-muestrapdf-mostrarall-index {
+    width: 300px;
+    height: 300px;
+    display: block;
 }
