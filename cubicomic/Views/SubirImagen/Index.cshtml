@@ -3,9 +3,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    @using (Html.BeginForm("subir", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" multiple="multiple" name="file" /> <button type="submit">Subir archivo</button>
-}
+ <ul class="nav nav-tabs">
+    <li class="active"><a href="#imagen" data-toggle="tab">Subir Imagen</a></li>
+    <li><a href="#pdf" data-toggle="tab">Subir PDF</a></li>
+    <li><a href="#comic" data-toggle="tab">Subir comic/manga</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane active in" id="imagen">
+        @using (Html.BeginForm("subir", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" multiple="multiple" name="file" /> <button type="submit">Subir archivo</button>
+        }
+    </div>
+    <div class="tab-pane fade" id="pdf">
+        @Html.Partial("_PDF")
+        </div>
+    <div class="tab-pane fade" id="comic">
+        @Html.Partial("_Comic")
+        </div>
 </div>

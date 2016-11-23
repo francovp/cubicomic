@@ -382,6 +382,8 @@
     <Content Include="Views\Home\_ConsejosPartial.cshtml" />
     <Content Include="Views\Home\_NuevoContenidoComicPartial.cshtml" />
     <Content Include="Views\Home\_NuevoContenidoNovelasPartial.cshtml" />
+    <Content Include="Views\SubirImagen\_PDF.cshtml" />
+    <Content Include="Views\SubirImagen\_Comic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
