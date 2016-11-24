@@ -15,6 +15,15 @@ namespace cubicomic.Controllers
             return View();
         }
 
+        public ActionResult PDF()
+        {
+            return View();
+        }
+        
+        public ActionResult Comic()
+        {
+            return View();
+        }
         [HttpPost]
         public void Subir(IEnumerable<HttpPostedFileBase> file)
         {
@@ -28,7 +37,24 @@ namespace cubicomic.Controllers
                 }
             }
         }
+
+        [HttpPost]
+        public ActionResult SubirPDF(HttpPostedFileBase[] file)
+        {
+            if (file == null) return null;
+
+            if (file[0] != null) { 
+            
+                string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file[0].FileName).ToLower();
+                file[0].SaveAs(Server.MapPath("~/Uploads/" + archivo));
+            }
+            if (file[1] != null)
+            {
+
+                string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file[1].FileName).ToLower();
+                file[1].SaveAs(Server.MapPath("~/UploadsPDF/" + archivo));
+            }
+            return View();
+        }
     }
-
-
 }
