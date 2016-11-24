@@ -1,7 +1,6 @@
 ﻿<link rel="stylesheet" href="~/Content/galeria2.css" />
 
 <div class="row">
-    <br />
     @{
         var i = 1;
         foreach (var item in ViewBag.lista)
@@ -18,7 +17,6 @@
 </div>
 
 <div id="myModal" class="modal">
-    <br /><br />
     <span class="close cursor" onclick="closeModal()">&times;</span>
     <div class="modal-content">
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -31,7 +29,7 @@
                 <center>
                     <div class="mySlides">
                         <div class="numbertext">@i / @total</div>
-                        <img class="img-responsive" src="../Uploads/@item" alt="" style="width: 60%; height: 60%">
+                        <img class="img-responsive" src="../Uploads/@item" alt="" style="width: 400px; height: 100%">
                     </div>
                 </center>
                 i = i + 1;
@@ -49,7 +47,7 @@
                 foreach (var item in ViewBag.lista)
                 {
                     <div class="column">
-                        <img class="demo" src="../Uploads/@item" onclick="currentSlide(@i)" style="width:50%">
+                        <img class="demo" src="../Uploads/@item" onclick="currentSlide(@i)" style="width:100px">
                     </div>
                     i = i + 1;
                 }
