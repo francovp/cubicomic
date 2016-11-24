@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using cubicomic.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace cubicomic.ViewModels
@@ -24,5 +25,8 @@ namespace cubicomic.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
+
+        [Display(Name = "Avatar")]
+        public File Avatar { get; set; }
     }
 }

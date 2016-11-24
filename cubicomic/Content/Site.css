@@ -96,6 +96,12 @@ textarea {
     box-sizing: border-box;
 }
 
+.form.group.form-avatar {
+    margin-right: -5px;
+    margin-left: -20px;
+
+}
+
 .btn.cubicomic-button.button-size-fluid {
     width: 100%;
 }

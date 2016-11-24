@@ -76,6 +76,9 @@ namespace cubicomic.Models
         [Display(Name = "Apellido")]
         public string LastName { get; set; }
 
+        [Display(Name = "Nombre Completo")]
+        public string FullName { get; set; }
+
         [Required]
         [Display(Name = "Nombre de usuario")]
         public string UserName { get; set; }
@@ -95,6 +98,8 @@ namespace cubicomic.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare(nameof(Password), ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+        [Display(Name = "Avatar")]
+        public File Avatar { get; set; }
     }
 
     public class ResetPasswordViewModel

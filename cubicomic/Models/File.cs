@@ -11,7 +11,7 @@ namespace cubicomic.Models
         public string ContentType { get; set; }
         public byte[] Content { get; set; }
         public FileType FileType { get; set; }
-        public int PersonId { get; set; }
+        public string UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

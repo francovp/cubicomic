@@ -26,6 +26,7 @@ namespace cubicomic.Controllers
             model.LastName = user.LastName;
             model.CompleteName = user.FirstName + " " + user.LastName; 
             model.Email = user.Email;
+            model.Avatar = user.Avatar;
 
             //Archivos 
 
@@ -43,6 +44,17 @@ namespace cubicomic.Controllers
             ViewBag.lista = listaRutaImagenes;
 
             return View(model);
+        }
+
+        // GET: Image
+        public ActionResult ShowAvatar()
+        {
+            //var imageId = db.Files.Find(id);
+            //File image = db.Files.Include(s => s.File).SingleOrDefault(s => s.ID == id);
+            var imageData = user.Avatar.Content;
+            var imageType = user.Avatar.ContentType;
+
+            return File(imageData, imageType);
         }
 
         public ActionResult Galeria()

@@ -148,22 +148,44 @@ namespace cubicomic.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {
+                File avatar = null;
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    String ext = System.IO.Path.GetExtension(upload.FileName);
+                    avatar = new File
+                    {
+                        FileName = model.FirstName + model.LastName + "." + ext,
+                        FileType = FileType.Avatar,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+
+                }
+
+                var user = new ApplicationUser
+                {
                     UserName = model.UserName,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
-                };
+                    LastName = model.LastName,
+                    FullName = model.FirstName + " " + model.LastName,
+                    Avatar = avatar
+            };
+                avatar.UserId = user.Id;
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
 
                     await SignInManager.SignInAsync(
-                        user, isPersistent:false, 
+                        user, isPersistent:false,
                         rememberBrowser:false
                     );
                     
