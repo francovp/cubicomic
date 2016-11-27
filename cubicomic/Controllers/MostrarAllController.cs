@@ -30,7 +30,7 @@ namespace cubicomic.Controllers
             //Necesitas: using System.IO; para realizar esto
             DirectoryInfo de = new DirectoryInfo(carpetaPDF);
             //Obtenemos todos los .jpg con pdf adjunto
-            FileInfo[] Filess = de.GetFiles("*pdf.*");
+            FileInfo[] Filess = de.GetFiles("*pdf*");
             //Recorremos la carpeta
 
             foreach (FileInfo file in Filess)
