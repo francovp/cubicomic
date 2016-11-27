@@ -5,9 +5,11 @@
 
 @using (Html.BeginForm("subirPDF", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="file" /> 
+    <h2>Subir Portada del PDF</h2>
+    <input type="file" name="file" accept=".JPG,.PNG" /> 
     <br />
-    <input type="file" name="file" /> 
+    <h2>Subir el PDF</h2>
+    <input type="file" name="file" accept=".PDF" /> 
     <br />
     <button type="submit">Subir archivo</button>
 }

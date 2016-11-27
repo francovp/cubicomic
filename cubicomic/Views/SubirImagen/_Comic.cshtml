@@ -3,5 +3,13 @@
     ViewBag.Title = "_Comic";
 }
 
-<h2>_Comic</h2>
-
+@using (Html.BeginForm("SubirComic", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <h2>Portada Comic</h2>
+    <input type="file" name="portada" accept=".JPG,.PNG"/> 
+    <br />
+    <h2>Subir el comic </h2>
+    <input type="file" multiple="multiple" name="comic" accept=".JPG,.PNG" /> 
+    <br />
+    <button type="submit">Subir archivo</button>
+}

@@ -20,7 +20,6 @@ namespace cubicomic.Controllers
             var carpeta = Server.MapPath("~") + @"UploadsPDF";
             //Necesitas: using System.IO; para realizar esto
             DirectoryInfo d = new DirectoryInfo(carpeta);
-            //Obtenemos todos los .jpg
             FileInfo[] Files = d.GetFiles("*.PDF");
             //Recorremos la carpeta
             foreach (FileInfo file in Files)
