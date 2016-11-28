@@ -8,6 +8,8 @@ using System.Net;
 using cubicomic.ViewModels;
 using System.IO;
 using System.Collections.Generic;
+using System;
+using System.Diagnostics;
 
 namespace cubicomic.Controllers
 {
@@ -31,7 +33,8 @@ namespace cubicomic.Controllers
             //Archivos 
 
             List<string> listaRutaImagenes = new List<string>();
-            var carpeta = Server.MapPath("~") + @"Uploads";
+            var carpeta = Server.MapPath("/Uploads/" + user.UserName);
+            Debug.WriteLine(carpeta);
             //Necesitas: using System.IO; para realizar esto
             DirectoryInfo d = new DirectoryInfo(carpeta);
             //Obtenemos todos los .jpg
@@ -51,10 +54,19 @@ namespace cubicomic.Controllers
         {
             //var imageId = db.Files.Find(id);
             //File image = db.Files.Include(s => s.File).SingleOrDefault(s => s.ID == id);
-            var imageData = user.Avatar.Content;
-            var imageType = user.Avatar.ContentType;
-
-            return File(imageData, imageType);
+          try
+            {
+                var imageData = user.Avatar.Content;
+                var imageType = user.Avatar.ContentType;
+                return File(imageData, imageType);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+           
+            
+                     
         }
 
         public ActionResult Galeria()

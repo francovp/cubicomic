@@ -1,4 +1,10 @@
-﻿<link rel="stylesheet" href="~/Content/galeria2.css" />
+﻿@using Microsoft.AspNet.Identity
+@using System.Web.Mvc
+@using cubicomic.Models
+@using cubicomic.DAL
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin
+<link rel="stylesheet" href="~/Content/galeria2.css" />
 
 <div class="row">
     @{
@@ -29,7 +35,7 @@
                 <center>
                     <div class="mySlides">
                         <div class="numbertext">@i / @total</div>
-                        <img class="img-responsive" src="../Uploads/@item" alt="" style="width: 400px; height: 100%">
+                        <img class="img-responsive" src="../Uploads/@User.Identity.GetUserName()/@item" alt="" style="width: 400px; height: 100%">
                     </div>
                 </center>
                 i = i + 1;
@@ -47,7 +53,8 @@
                 foreach (var item in ViewBag.lista)
                 {
                     <div class="column">
-                        <img class="demo" src="../Uploads/@item" onclick="currentSlide(@i)" style="width:100px">
+                        <img class="demo" src="../Uploads/@User.Identity.GetUserName()/@item" onclick="currentSlide(@i)" style="width:100px">
+
                     </div>
                     i = i + 1;
                 }
