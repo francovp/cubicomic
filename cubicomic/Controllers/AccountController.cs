@@ -354,6 +354,7 @@ namespace cubicomic.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
+            ControllerContext.HttpContext.Session.RemoveAll();
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
