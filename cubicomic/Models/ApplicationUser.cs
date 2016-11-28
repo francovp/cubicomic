@@ -28,7 +28,13 @@ namespace cubicomic.Models
         [Display(Name = "Apellido")]
         public string LastName { get; set; }
         [Display(Name = "Nombre Completo")]
-        public string FullName { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return LastName + ", " + FirstName;
+            }
+        }
         public virtual File Avatar { get; set; }
         public virtual ICollection<File> Files { get; set; }
         public virtual ICollection<FilePath> FilePaths { get; set; }

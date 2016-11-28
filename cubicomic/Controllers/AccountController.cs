@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using cubicomic.Models;
+using Facebook;
 
 namespace cubicomic.Controllers
 {
@@ -175,7 +176,6 @@ namespace cubicomic.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    FullName = model.FirstName + " " + model.LastName,
                     Avatar = avatar
             };
                 avatar.UserId = user.Id;
@@ -399,7 +399,18 @@ namespace cubicomic.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
+                var identity = AuthenticationManager.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie);
+                var accessToken = identity.FindFirstValue("FacebookAccessToken");
+                var fb = new FacebookClient(accessToken);
+                dynamic myInfo = fb.Get("/me?fields=email"); // specify the email field
+                var user = new ApplicationUser
+                {
+                    UserName = info.DefaultUserName,
+                    Email = myInfo.email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

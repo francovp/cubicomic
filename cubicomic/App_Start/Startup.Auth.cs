@@ -7,6 +7,8 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using cubicomic.Models;
 using cubicomic.DAL;
+using Microsoft.Owin.Security.Facebook;
+using System.Threading.Tasks;
 
 namespace cubicomic
 {
@@ -55,10 +57,20 @@ namespace cubicomic
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "1189320171136771",
-               appSecret: "a7b9a3aa606cbefa8b3876bc727b209e");
-
+            app.UseFacebookAuthentication(new FacebookAuthenticationOptions
+            {
+                AppId = "1189320171136771",
+                AppSecret = "a7b9a3aa606cbefa8b3876bc727b209e",
+                Scope = { "email" },
+                Provider = new FacebookAuthenticationProvider
+                {
+                    OnAuthenticated = context =>
+                    {
+                        context.Identity.AddClaim(new System.Security.Claims.Claim("FacebookAccessToken", context.AccessToken));
+                        return Task.FromResult(true);
+                    }
+                }
+            });
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",
