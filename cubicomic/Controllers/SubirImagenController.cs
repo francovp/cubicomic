@@ -32,7 +32,7 @@ namespace cubicomic.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Subir(IEnumerable<HttpPostedFileBase> file)
+        public ActionResult Subir(IEnumerable<HttpPostedFileBase> file, String categoria)
         {
             if (file == null) return RedirectToAction("Index", "SubirImagen"); ;
            
@@ -40,7 +40,7 @@ namespace cubicomic.Controllers
             {
                 if (files != null && files.ContentLength > 0)
                 {
-                    string archivo = (user.Id + "-" + DateTime.Now.ToString("yyyyMMddHHmmss") +"-"+ "image" + files.FileName).ToLower();
+                    string archivo = (user.Id + "-" + DateTime.Now.ToString("yyyyMMddHHmmss") +"-"+ categoria + "-"+ "image" + files.FileName).ToLower();
                     files.SaveAs(Server.MapPath("~/Uploads/" + archivo));
                    
                 }

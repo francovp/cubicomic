@@ -13,6 +13,14 @@
     <div class="tab-pane active in" id="imagen">
         @using (Html.BeginForm("subir", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
+            <label for="categoria">Categoria:</label>
+            <select name="categoria">
+                <option value="-.accion.-">Acción</option>
+                <option value="-.comedia.-">Comedia</option>
+                <option value="-.terror.-">Terror</option>
+                <option value="-.digital.-">Digital</option>
+                <option value="-.+18.-">+18</option>
+            </select> 
             <input type="file" multiple="multiple" name="file" accept=".JPG,.PNG"  /> <button type="submit">Subir archivo</button>
         }
     </div>

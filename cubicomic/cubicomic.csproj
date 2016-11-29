@@ -390,6 +390,8 @@
     <Content Include="Views\Home\_NuevoContenidoNovelasPartial.cshtml" />
     <Content Include="Views\SubirImagen\_PDF.cshtml" />
     <Content Include="Views\SubirImagen\_Comic.cshtml" />
+    <Content Include="Views\MostrarAll\imagenesAccion.cshtml" />
+    <Content Include="Views\MostrarAll\imagenesComedia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
