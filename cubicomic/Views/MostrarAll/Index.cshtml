@@ -3,7 +3,7 @@
 @Scripts.Render("~/bundles/jquery")
 <br /><br /><br /><br />
 <div class="row">
-    <div class="col-md-2">
+	<div class="col-md-2">
 		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="innertube">
 				<h3>Categorias</h3>
@@ -12,42 +12,42 @@
 					<li><a class="tag manga" id="accion" href="#">Mangas</a></li>
 					<li><a class="tag comic" id="accion" href="#">Comics</a></li>
 					<li><a class="tag novel" id="novelas" href="#">Novelas</a></li>
-                    <li><a class="tag image" id="accion" href="#">Imagenes</a></li>
+					<li><a class="tag image" id="accion" href="#">Imagenes</a></li>
 
 
 				</ul>
 				<h3>Géneros de mangas</h3>
 				<ul>
-					<li><a class="tag" id="accion" href="#">Shōnen</a></li>
-					<li><a class="tag" id="accion" href="#">josei</a></li>
-					<li><a class="tag" id="accion" href="#">Kodomo</a></li>
-					<li><a class="tag" id="accion" href="#">Seinen</a></li>
-					<li><a class="tag" id="accion" href="#">shōjo</a></li>
+					<li><a class="tag manga" id="shonen" href="#">Shōnen</a></li>
+					<li><a class="tag manga" id="josei" href="#">josei</a></li>
+					<li><a class="tag manga" id="kodomo" href="#">Kodomo</a></li>
+					<li><a class="tag manga" id="seinen" href="#">Seinen</a></li>
+					<li><a class="tag manga" id="shojo" href="#">shōjo</a></li>
 				</ul>
 				<h3>Géneros de comics</h3>
 				<ul>
-					<li><a class="tag" id="accion" href="#">Acción</a></li>
-					<li><a class="tag" id="accion" href="#">Comedia</a></li>
-					<li><a class="tag" id="accion" href="#">Terror</a></li>
-					<li><a class="tag" id="accion" href="#">Historia de Vidas</a></li>
-					<li><a class="tag" id="accion" href="#">Sobrenatural</a></li>
+					<li><a class="tag comic" id="accion" href="#">Acción</a></li>
+					<li><a class="tag comic" id="comedia" href="#">Comedia</a></li>
+					<li><a class="tag comic" id="terror" href="#">Terror</a></li>
+					<li><a class="tag comic" id="historia" href="#">Historia de Vidas</a></li>
+					<li><a class="tag comic" id="sobrenatural" href="#">Sobrenatural</a></li>
 				</ul>
 				<h3>Géneros de Novelas</h3>
 				<ul>
 					<li><a class="tag novel" id="accion" href="#">Acción</a></li>
-					<li><a class="tag novel" id="accion" href="#">Comedia</a></li>
-					<li><a class="tag novel" id="accion" href="#">Terror</a></li>
-					<li><a class="tag novel" id="accion" href="#">Historia de Vidas</a></li>
-					<li><a class="tag novel" id="accion" href="#">Sobrenatural</a></li>
+					<li><a class="tag novel" id="comedia" href="#">Comedia</a></li>
+					<li><a class="tag novel" id="terror" href="#">Terror</a></li>
+					<li><a class="tag novel" id="historia" href="#">Historia de Vidas</a></li>
+					<li><a class="tag novel" id="sobrenatural" href="#">Sobrenatural</a></li>
 				</ul>
-                <h3>Géneros de Imagenes</h3>
+				<h3>Géneros de Imagenes</h3>
 				<ul>
 
 					<li><a class="tag image" id="accion" href="#">Acción</a></li>
 					<li><a class="tag image" id="comedia" href="#">Comedia</a></li>
 					<li><a class="tag image" id="terror" href="#">Terror</a></li>
 					<li><a class="tag image" id="digital" href="#">Digital</a></li>
-                    <li><a class="tag image" id="+18" href="#">+18</a></li>
+					<li><a class="tag image" id="+18" href="#">+18</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -61,46 +61,70 @@
 @Html.Partial("_GaleriaPartial")
 
 <script type="text/javascript">
-    $(document).ready(function () {
+	$(document).ready(function () {
 
-        $.get('@Url.Action("/_ImagenesAllPartial")',
-                function (data) {
-                    $("#target").html(data);
-                });
+		$.get('@Url.Action("/_ImagenesAllPartial")',
+				function (data) {
+					$("#target").html(data);
+				});
 
-        $('a.tag.all').click(function() {
-            $("#log").ajaxError(function (event, jqxhr, settings, exception) {
-                alert(exception);
-            });
+		$('a.tag.all').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
 
-            $.get('@Url.Action("/_ImagenesAllPartial")',
-                function (data) {
-                    $("#target").html(data);
-                });
+			$.get('@Url.Action("/_ImagenesAllPartial")',
+				function (data) {
+					$("#target").html(data);
+				});
+		});
+
+		$('a.tag.image').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
+
+			var tagId = $(this).attr('id');
+			$.get('@Url.Action("/_ImagenesPartial")',
+				{ id: tagId }, function (data) {
+					$("#target").html(data);
+				});
+		});
+
+		$('a.tag.novel').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
+
+			var tagId = $(this).attr('id');
+			$.get('@Url.Action("/_NovelasPartial")',
+				{ id: tagId }, function (data) {
+					$("#target").html(data);
+				});
+		});
+
+        $('a.tag.manga').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
+
+			var tagId = $(this).attr('id');
+			$.get('@Url.Action("/_MangasPartial")',
+				{ id: tagId }, function (data) {
+					$("#target").html(data);
+				});
         });
 
-        $('a.tag.image').click(function() {
-            $("#log").ajaxError(function (event, jqxhr, settings, exception) {
-                alert(exception);
-            });
+        $('a.tag.comic').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
 
-            var tagId = $(this).attr('id');
-            $.get('@Url.Action("/_ImagenesPartial")',
-                { id: tagId }, function (data) {
-                    $("#target").html(data);
-                });
-        });
-
-        $('a.tag.novel').click(function() {
-            $("#log").ajaxError(function (event, jqxhr, settings, exception) {
-                alert(exception);
-            });
-
-            var tagId = $(this).attr('id');
-            $.get('@Url.Action("/_NovelasPartial")',
-                { id: tagId }, function (data) {
-                    $("#target").html(data);
-                });
-        });
-    });
+			var tagId = $(this).attr('id');
+			$.get('@Url.Action("/_ComicsPartial")',
+				{ id: tagId }, function (data) {
+					$("#target").html(data);
+				});
+		});
+	});
 </script>

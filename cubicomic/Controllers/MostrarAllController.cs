@@ -139,14 +139,50 @@ namespace cubicomic.Controllers
             //Necesitas: using System.IO; para realizar esto
             DirectoryInfo de = new DirectoryInfo(carpetaPDF);
             //Obtenemos todos los .jpg con pdf adjunto
-            FileInfo[] Filess = de.GetFiles("*pdf*");
+            FileInfo[] Files = de.GetFiles("*pdf*");
             //Recorremos la carpeta
 
-            foreach (FileInfo file in Filess)
+            foreach (FileInfo file in Files)
             {
                 listaRutaPDF.Add(file.Name);
             }
             ViewBag.muestraPDF = listaRutaPDF;
+            return PartialView();
+        }
+
+        public PartialViewResult _ComicsPartial(string id)
+        {
+            List<string> listaRutaComic = new List<string>();
+            var carpetaComic = Server.MapPath(uploadsPath);
+            //Necesitas: using System.IO; para realizar esto
+            DirectoryInfo dec = new DirectoryInfo(carpetaComic);
+            //Obtenemos todos los .jpg con pdf adjunto
+            FileInfo[] Files = dec.GetFiles("*-comic-*");
+            //Recorremos la carpeta
+
+            foreach (FileInfo file in Files)
+            {
+                listaRutaComic.Add(file.Name);
+            }
+            ViewBag.muestraComic = listaRutaComic;
+            return PartialView();
+        }
+
+        public PartialViewResult _MangasPartial(string id)
+        {
+            List<string> listaRutaManga = new List<string>();
+            var carpetaMangas = Server.MapPath(uploadsPath);
+            //Necesitas: using System.IO; para realizar esto
+            DirectoryInfo dec = new DirectoryInfo(carpetaMangas);
+            //Obtenemos todos los .jpg con pdf adjunto
+            FileInfo[] Files = dec.GetFiles("*-manga-*");
+            //Recorremos la carpeta
+
+            foreach (FileInfo file in Files)
+            {
+                listaRutaManga.Add(file.Name);
+            }
+            ViewBag.muestraComic = listaRutaManga;
             return PartialView();
         }
     }

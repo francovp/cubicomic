@@ -1,0 +1,20 @@
+﻿<div class="row">
+	@foreach (var item3 in ViewBag.muestraComic)
+	{
+		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+			<a class="thumbnail" href="@Url.Action(
+					"Index",
+					"LectorComic",
+					new{
+					busqueda = item3
+				},
+				null
+				)">
+				<img src="@Url.Content("/Uploads/"+@item3)" class="img-responsive mostrarall-thumbnail" alt=""  />
+			</a>
+            <br /><br /><br />
+		</div>
+	}
+</div>
+
+    
