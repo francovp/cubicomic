@@ -3,7 +3,7 @@
     ViewBag.Title = "_manga";
 }
 
-}
+
 
 @using (Html.BeginForm("SubirManga", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -15,7 +15,8 @@
         <option value="-.seinen.-">Seinen</option>
         <option value="-.shojo.-">Shōjo</option>
     </select>
-    <h2>Portada Manga</h2>
+
+    <h2>Portada del Manga</h2>
     <input type="file" name="portada" accept=".JPG,.PNG"/> 
     <br />
     <h2>Subir el Manga: las paginas deben ir numeradas en 1,2,3,4... </h2>
