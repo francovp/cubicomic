@@ -21,7 +21,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*@Html.ActionLink("CubiComic", "Index", "Home", new { area = "" , @class = "navbar-brand" })*@
 
                 <a href="@Url.Action("Index", "Home")" title="cubicomic" class="navbar-brand">
                     <img class="nav-logo" alt="CubiComic" src="@Url.Content("../../Img/Index/logoSmall.png")" >
@@ -31,16 +30,16 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Destacados", "Index", "MostrarAll")</li>
-                    <li>
-                    <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                    <input class="form-control" type="text" />
-                    </div>
-                    <button type="submit" class="btn btn-default">
-                    Buscar
-                    </button>
-                    </form>
-                    </li>
+                    @*<li>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input class="form-control" type="text" />
+                            </div>
+                            <button type="submit" class="btn btn-default">
+                                Buscar
+                            </button>
+                        </form>
+                    </li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
