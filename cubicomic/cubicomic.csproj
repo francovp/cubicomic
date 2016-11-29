@@ -373,6 +373,7 @@
     <Content Include="Views\MostrarAll\_NovelasPartial.cshtml" />
     <Content Include="Views\MostrarAll\_GaleriaPartial.cshtml" />
     <Content Include="Views\LectorComic\Index.cshtml" />
+    <Content Include="Views\SubirImagen\_manga.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

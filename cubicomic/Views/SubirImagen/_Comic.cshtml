@@ -5,10 +5,18 @@
 
 @using (Html.BeginForm("SubirComic", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    
+    <select name="categoria" class="form-control">
+        <option value="-.accion.-">Acción</option>
+        <option value="-.comedia.-">Comedia</option>
+        <option value="-.terror.-">Terror</option>
+        <option value="-.historia.-">Historias de vidas</option>
+        <option value="-.sobrenatural.-">Sobre natural</option>
+    </select>
     <h2>Portada Comic</h2>
     <input type="file" name="portada" accept=".JPG,.PNG"/> 
     <br />
-    <h2>Subir el comic </h2>
+    <h2>Subir el comic: las paginas deben ir numeradas en 1,2,3,4... </h2>
     <input type="file" multiple="multiple" name="comic" accept=".JPG,.PNG" /> 
     <br />
     <button type="submit">Subir archivo</button>
