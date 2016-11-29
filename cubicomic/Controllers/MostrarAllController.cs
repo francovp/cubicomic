@@ -13,12 +13,15 @@ namespace cubicomic.Controllers
     {
         private string uploadsPath = "/Uploads";
 
-        public static string IndexLocation = Server.MapPath("uploadsPath");
         // GET: MostrarAll
 
         public ActionResult Index()
         {
+            return View();
+        }
 
+        public PartialViewResult _ImagenesAllPartial()
+        {
             List<string> listaRutaImagenes = new List<string>();
             var carpeta = Server.MapPath(uploadsPath);
             //Necesitas: using System.IO; para realizar esto
@@ -44,42 +47,43 @@ namespace cubicomic.Controllers
                 listaRutaPDF.Add(file.Name);
             }
             ViewBag.muestraPDF = listaRutaPDF;
-            return View();
+            return PartialView();
         }
 
-        public ActionResult imagenesAccion()
+
+        public PartialViewResult _ImagenesPartial(string id)
         {
-            uploadsPath = "../../Uploads";
             List<string> listaRutaImagenes = new List<string>();
             var carpeta = Server.MapPath(uploadsPath);
             //Necesitas: using System.IO; para realizar esto
             DirectoryInfo da = new DirectoryInfo(carpeta);
             //Obtenemos todos los .jpg
-            FileInfo[] Files = da.GetFiles("*--.accion.--image*");
+            FileInfo[] Files = da.GetFiles("*--."+ @id +".--image*");
             //Recorremos la carpeta
             foreach (FileInfo file in Files)
             {
                 listaRutaImagenes.Add(file.Name);
             }
             ViewBag.lista = listaRutaImagenes;
-            return View();
+            return PartialView();
         }
 
-        public ActionResult imagenesComedia()
+        public PartialViewResult _NovelasPartial(string id)
         {
-            List<string> listaRutaImagenes = new List<string>();
-            var carpeta = Server.MapPath("~") + @"Uploads";
+            List<string> listaRutaPDF = new List<string>();
+            var carpetaPDF = Server.MapPath(uploadsPath);
             //Necesitas: using System.IO; para realizar esto
-            DirectoryInfo dc = new DirectoryInfo(carpeta);
-            //Obtenemos todos los .jpg
-            FileInfo[] Files = dc.GetFiles("*--.comedia.--image*");
+            DirectoryInfo de = new DirectoryInfo(carpetaPDF);
+            //Obtenemos todos los .jpg con pdf adjunto
+            FileInfo[] Filess = de.GetFiles("*pdf*");
             //Recorremos la carpeta
-            foreach (FileInfo file in Files)
+
+            foreach (FileInfo file in Filess)
             {
-                listaRutaImagenes.Add(file.Name);
+                listaRutaPDF.Add(file.Name);
             }
-            ViewBag.lista = listaRutaImagenes;
-            return View();
+            ViewBag.muestraPDF = listaRutaPDF;
+            return PartialView();
         }
     }
 }

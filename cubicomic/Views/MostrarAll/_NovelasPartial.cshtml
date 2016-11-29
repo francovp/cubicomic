@@ -1,0 +1,22 @@
+﻿<div class="row">
+	@foreach (var item2 in ViewBag.muestraPDF)
+	{
+		<div class="col-md-4">
+			<a class="viewbag-muestrapdf-mostrarall-index" href="@Url.Action(
+					"Index",
+					"MostrarPDF",
+					new{
+					busqueda = item2
+				},
+				null
+				)">
+				<img src="@Url.Content("/Uploads/"+@item2)" width="300" height="300" />
+			</a>
+            <br /><br /><br />
+
+		</div>
+
+	}
+</div>
+
+    

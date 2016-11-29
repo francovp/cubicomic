@@ -1,4 +1,5 @@
 ﻿<link rel="stylesheet" href="~/Content/mostrarall.css" />
+@Scripts.Render("~/bundles/jquery")
 <br /><br /><br /><br />
 <div class="row">
     <div class="col-md-2">
@@ -6,78 +7,97 @@
 			<div class="innertube">
 				<h3>Categorias</h3>
 				<ul>
-					<li><a href="#">Todos</a></li>
-					<li><a href="#">Mangas</a></li>
-					<li><a href="#">Comics</a></li>
-					<li><a href="#">Novelas</a></li>
-                    <li><a href="#">Imagenes</a></li>
+					<li><a class="tag all" id="accion" href="#">Todos</a></li>
+					<li><a class="tag manga" id="accion" href="#">Mangas</a></li>
+					<li><a class="tag comic" id="accion" href="#">Comics</a></li>
+					<li><a class="tag novel" id="novelas" href="#">Novelas</a></li>
+                    <li><a class="tag image" id="accion" href="#">Imagenes</a></li>
 
 
 				</ul>
 				<h3>Géneros de mangas</h3>
 				<ul>
-					<li><a href="#">Shōnen</a></li>
-					<li><a href="#">josei</a></li>
-					<li><a href="#">Kodomo</a></li>
-					<li><a href="#">Seinen</a></li>
-					<li><a href="#">shōjo</a></li>
+					<li><a class="tag" id="accion" href="#">Shōnen</a></li>
+					<li><a class="tag" id="accion" href="#">josei</a></li>
+					<li><a class="tag" id="accion" href="#">Kodomo</a></li>
+					<li><a class="tag" id="accion" href="#">Seinen</a></li>
+					<li><a class="tag" id="accion" href="#">shōjo</a></li>
 				</ul>
 				<h3>Géneros de comics</h3>
 				<ul>
-					<li><a href="#">Acción</a></li>
-					<li><a href="#">Comedia</a></li>
-					<li><a href="#">Terror</a></li>
-					<li><a href="#">Historia de Vidas</a></li>
-					<li><a href="#">Sobrenatural</a></li>
+					<li><a class="tag" id="accion" href="#">Acción</a></li>
+					<li><a class="tag" id="accion" href="#">Comedia</a></li>
+					<li><a class="tag" id="accion" href="#">Terror</a></li>
+					<li><a class="tag" id="accion" href="#">Historia de Vidas</a></li>
+					<li><a class="tag" id="accion" href="#">Sobrenatural</a></li>
 				</ul>
 				<h3>Géneros de Novelas</h3>
 				<ul>
-					<li><a href="#">Acción</a></li>
-					<li><a href="#">Comedia</a></li>
-					<li><a href="#">Terror</a></li>
-					<li><a href="#">Historia de Vidas</a></li>
-					<li><a href="#">Sobrenatural</a></li>
+					<li><a class="tag novel" id="accion" href="#">Acción</a></li>
+					<li><a class="tag novel" id="accion" href="#">Comedia</a></li>
+					<li><a class="tag novel" id="accion" href="#">Terror</a></li>
+					<li><a class="tag novel" id="accion" href="#">Historia de Vidas</a></li>
+					<li><a class="tag novel" id="accion" href="#">Sobrenatural</a></li>
 				</ul>
                 <h3>Géneros de Imagenes</h3>
 				<ul>
 
-					<li><a href="@Url.Action("imagenesAccion", "MostrarAll")">Acción</a></li>
-					<li><a href="@Url.Action("imagenesComedia", "MostrarAll")">Comedia</a></li>
-					<li><a href="#">Terror</a></li>
-					<li><a href="#">Digital</a></li>
-                    <li><a href="#">+18</a></li>
+					<li><a class="tag image" id="accion" href="#">Acción</a></li>
+					<li><a class="tag image" id="comedia" href="#">Comedia</a></li>
+					<li><a class="tag image" id="terror" href="#">Terror</a></li>
+					<li><a class="tag image" id="digital" href="#">Digital</a></li>
+                    <li><a class="tag image" id="+18" href="#">+18</a></li>
 				</ul>
 			</div>
 		</nav>
 	</div>
-	<div class="col-md-10">
-		<div class="row">
-
-			@foreach (var item in ViewBag.lista)
-			{
-				<div class="col-md-4">
-					<img src="Uploads/@item" width="300" height="300" />
-                    <br /><br /><br />
-				</div>
-			}
-			@foreach (var item2 in ViewBag.muestraPDF)
-			{
-				<div class="col-md-4">
-					<a class="viewbag-muestrapdf-mostrarall-index" href="@Url.Action(
-							"Index",
-							"MostrarPDF",
-							new{
-							busqueda = item2
-						},
-						null
-						)">
-						<img src="@Url.Content("/Uploads/"+@item2)" width="300" height="300" />
-					</a>
-                    <br /><br /><br />
-
-				</div>
-
-			}
-		</div>
+	<div class="col-md-10" id="target">
 	</div>
 </div>
+<div id="log">
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.get('@Url.Action("/_ImagenesAllPartial")',
+                function (data) {
+                    $("#target").html(data);
+                });
+
+        $('a.tag.all').click(function() {
+            $("#log").ajaxError(function (event, jqxhr, settings, exception) {
+                alert(exception);
+            });
+
+            $.get('@Url.Action("/_ImagenesAllPartial")',
+                function (data) {
+                    $("#target").html(data);
+                });
+        });
+
+        $('a.tag.image').click(function() {
+            $("#log").ajaxError(function (event, jqxhr, settings, exception) {
+                alert(exception);
+            });
+
+            var tagId = $(this).attr('id');
+            $.get('@Url.Action("/_ImagenesPartial")',
+                { id: tagId }, function (data) {
+                    $("#target").html(data);
+                });
+        });
+
+        $('a.tag.novel').click(function() {
+            $("#log").ajaxError(function (event, jqxhr, settings, exception) {
+                alert(exception);
+            });
+
+            var tagId = $(this).attr('id');
+            $.get('@Url.Action("/_NovelasPartial")',
+                { id: tagId }, function (data) {
+                    $("#target").html(data);
+                });
+        });
+    });
+</script>
