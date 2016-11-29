@@ -49,7 +49,7 @@
     <IncludeIisSettings>false</IncludeIisSettings>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -281,10 +281,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Properties\PublishProfiles\CubiComic %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\CubiComic.pubxml" />
     <Content Include="Img\loading.gif" />
     <Content Include="Img\next.png" />
     <Content Include="Img\Patrones\patron_1.jpg" />
@@ -370,7 +368,6 @@
     <Content Include="Views\MostrarAll\Index.cshtml" />
     <Content Include="Views\Miembros\ConfigCuenta.cshtml" />
     <Content Include="Views\Miembros\_CarouselPartial.cshtml" />
-    <Content Include="Views\Miembros\_GaleriaPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilSidebarPartial.cshtml" />
     <Content Include="Views\Miembros\_PerfilTopPartial.cshtml" />
     <Content Include="Views\Home\_SubidorImagenInspiradorCarouselPartial.cshtml" />
