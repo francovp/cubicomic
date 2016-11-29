@@ -33,12 +33,12 @@ namespace cubicomic.Controllers
             //Archivos 
 
             List<string> listaRutaImagenes = new List<string>();
-            var carpeta = Server.MapPath("/Uploads/" + user.UserName);
+            var carpeta = Server.MapPath("~") + @"Uploads";
             Debug.WriteLine(carpeta);
             //Necesitas: using System.IO; para realizar esto
             DirectoryInfo d = new DirectoryInfo(carpeta);
             //Obtenemos todos los .jpg
-            FileInfo[] Files = d.GetFiles("*.*");
+            FileInfo[] Files = d.GetFiles("*"+user.Id+"*");
             //Recorremos la carpeta
             foreach (FileInfo file in Files)
             {
