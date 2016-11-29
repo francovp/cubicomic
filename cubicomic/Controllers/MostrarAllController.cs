@@ -182,7 +182,7 @@ namespace cubicomic.Controllers
             {
                 listaRutaManga.Add(file.Name);
             }
-            ViewBag.muestraComic = listaRutaManga;
+            ViewBag.muestraManga = listaRutaManga;
             return PartialView();
         }
     }
