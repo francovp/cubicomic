@@ -36,6 +36,24 @@
 		</div>
 
 	}
+    @foreach (var item3 in ViewBag.muestraComic)
+	{
+		<div class="col-md-4">
+			<a href="@Url.Action(
+					"Index",
+					"LectorComic",
+					new{
+					busqueda = item3
+				},
+				null
+				)">
+				<img src="@Url.Content("/Uploads/"+@item3)" width="300" height="300" />
+			</a>
+            <br /><br /><br />
+
+		</div>
+
+	}
 </div>
 
     

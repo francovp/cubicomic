@@ -87,9 +87,9 @@ namespace cubicomic.Controllers
             string fileName = Path.GetFileName(portada[0].FileName);
             if (portada != null && (fileExt == ".png" || fileExt == ".jpg"))
             {
-               
-                string archivoP = ("comic" + portada[0].FileName).ToLower();
-                Directory.CreateDirectory(Server.MapPath("~/UploadsComic/" + user.UserName + "/" + archivoP));
+
+                string archivoP = (user.Id + "-comic-" + portada[0].FileName).ToLower();
+                Directory.CreateDirectory(Server.MapPath("~/UploadsComic/" + archivoP));
                 if (comic != null)
                 {
                     foreach (var files in comic)
@@ -99,7 +99,7 @@ namespace cubicomic.Controllers
                         if (files != null && files.ContentLength > 0 && (fileExt2 == ".png" || fileExt2 == ".jpg"))
                         {
                             string archivo = (files.FileName).ToLower();
-                            files.SaveAs(Server.MapPath("~/UploadsComic/" + user.UserName + "/" + archivoP + "/" + archivo));
+                            files.SaveAs(Server.MapPath("~/UploadsComic/" + archivoP + "/" + archivo));
                         }
                     }
                     portada[0].SaveAs(Server.MapPath("~/Uploads/" + archivoP));
