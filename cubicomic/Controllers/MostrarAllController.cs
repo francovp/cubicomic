@@ -19,7 +19,7 @@ namespace cubicomic.Controllers
             //Necesitas: using System.IO; para realizar esto
             DirectoryInfo d = new DirectoryInfo(carpeta);
             //Obtenemos todos los .jpg
-            FileInfo[] Files = d.GetFiles("*image.*");
+            FileInfo[] Files = d.GetFiles("*image*");
             //Recorremos la carpeta
             foreach (FileInfo file in Files)
             {

@@ -35,14 +35,14 @@ namespace cubicomic.Controllers
         public ActionResult Subir(IEnumerable<HttpPostedFileBase> file)
         {
             if (file == null) return RedirectToAction("Index", "SubirImagen"); ;
-            Directory.CreateDirectory(Server.MapPath("~/Uploads/" + user.UserName + "/"));
+           
             foreach (var files in file)
             {
                 if (files != null && files.ContentLength > 0)
                 {
-                    string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + files.FileName).ToLower();
-                    files.SaveAs(Server.MapPath("~/Uploads/" + user.UserName + "/" + archivo));
-                    return RedirectToAction("Index", "SubirImagen");
+                    string archivo = (user.Id + "-" + DateTime.Now.ToString("yyyyMMddHHmmss") +"-"+ "image" + files.FileName).ToLower();
+                    files.SaveAs(Server.MapPath("~/Uploads/" + archivo));
+                   
                 }
             }
             return RedirectToAction("Index", "SubirImagen");
@@ -63,11 +63,11 @@ namespace cubicomic.Controllers
                
                 string fileExt2 = Path.GetExtension(file[1].FileName).ToLower();
                 string fileName2 = Path.GetFileName(file[1].FileName);
-                string archivo = ("pdf" + file[0].FileName).ToLower();
+                string archivo = (user.Id +"pdf" + file[0].FileName).ToLower();
 
                 if (file[1] != null && fileExt2 == ".pdf")
                 {
-                    string archivo2 = ("pdf" + file[0].FileName).ToLower();
+                    string archivo2 = (user.Id +"pdf" + file[0].FileName).ToLower();
                     String nuevo = null;
                     nuevo = archivo2.Replace(".jpg", ".pdf").Replace(".png", ".pdf");
                     file[0].SaveAs(Server.MapPath("~/Uploads/" + archivo));
