@@ -37,15 +37,8 @@
     <WarningLevel>4</WarningLevel>
     <PublishDatabaseSettings>
       <Objects>
-        <ObjectGroup Name="cubicomicEntities-Deployment" Order="2">
-          <Destination Path="" />
-          <Object Type="DbFullSql">
-            <PreSource Path="Data Source=cubimundotest.database.windows.net%3bInitial Catalog=cubicomic.Test%3bPersist Security Info=False%3bUser ID=francovp%3bpassword=tlozOOT8569%40%3bapplication name=EntityFramework%3bMultipleActiveResultSets=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
-            <Source Path="obj\Debug\AutoScripts\cubicomicEntities-Deployment_SchemaAndData.sql" Transacted="True" />
-          </Object>
-        </ObjectGroup>
         <ObjectGroup Name="DefaultConnection-Deployment" Order="3" xmlns="">
-          <Destination Path="" />
+          <Destination Path="Data Source=cubimundo.database.windows.net%3binitial catalog=cubicomic%3bpersist security info=True%3buser id=francovp%3bpassword=tlozOOT8569%40%3bapplication name=EntityFramework%3bMultipleActiveResultSets=True" />
           <Object Type="DbFullSql">
             <PreSource Path="Data Source=cubimundo.database.windows.net%3bInitial Catalog=cubicomic%3bPersist Security Info=True%3bUser ID=francovp%3bPassword=tlozOOT8569%40%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Debug\AutoScripts\DefaultConnection-Deployment_SchemaAndData.sql" Transacted="True" />
@@ -56,6 +49,8 @@
     <IncludeIisSettings>false</IncludeIisSettings>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -223,7 +218,6 @@
     <Compile Include="Controllers\SubirImagenController.cs" />
     <Compile Include="Controllers\VisualisadorIMAGEController.cs" />
     <Compile Include="DAL\CubicomicConfiguration.cs" />
-    <Compile Include="Extensions\ClaimsPrincipalExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,7 +271,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\thumbnail-gallery.css" />
-    <Content Include="Datos\img\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -289,6 +282,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\CubiComic %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\CubiComic - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic.pubxml" />
     <Content Include="Img\loading.gif" />
@@ -393,11 +387,10 @@
     <Content Include="Views\MostrarAll\_ImagenesPartial.cshtml" />
     <Content Include="Views\MostrarAll\_ImagenesAllPartial.cshtml" />
     <Content Include="Views\MostrarAll\_NovelasPartial.cshtml" />
+    <Content Include="Views\MostrarAll\_GaleriaPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Datos\Mangas\" />
-    <Folder Include="Datos\Novelas\" />
     <Folder Include="UploadsComic\" />
     <Folder Include="UploadsPDF\" />
     <Folder Include="Uploads\" />

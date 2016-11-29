@@ -1,9 +1,18 @@
-﻿<div class="row">
+﻿@{
+    var i = 1;
+    foreach (var item in ViewBag.lista)
+    {
+        i = i + 1;
+    }
+    var total = i - 1;
+}
+
+<div class="row">
 
 	@foreach (var item in ViewBag.lista)
 	{
 		<div class="col-md-4">
-			<img src="Uploads/@item" width="300" height="300" />
+			<img src="Uploads/@item" onclick="openModal();currentSlide(@i)" width="300" height="300" />
             <br /><br /><br />
 		</div>
 	}
