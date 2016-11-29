@@ -94,8 +94,6 @@ namespace cubicomic.Controllers
             }
             ViewBag.muestraPDF = listaRutaPDF;
 
-            //buscar comic
-
             // busca comic
             List<string> listaRutaComic = new List<string>();
             var carpetaComic = Server.MapPath(uploadsPath);
@@ -110,6 +108,21 @@ namespace cubicomic.Controllers
                 listaRutaComic.Add(file.Name);
             }
             ViewBag.muestraComic = listaRutaComic;
+
+            //buscar comic
+            List<string> listaRutaManga = new List<string>();
+            var carpetaMangas = Server.MapPath(uploadsPath);
+            //Necesitas: using System.IO; para realizar esto
+            DirectoryInfo decc = new DirectoryInfo(carpetaMangas);
+            //Obtenemos todos los .jpg con pdf adjunto
+            FileInfo[] Files4 = decc.GetFiles("*-manga-*");
+            //Recorremos la carpeta
+
+            foreach (FileInfo file in Files4)
+            {
+                listaRutaManga.Add(file.Name);
+            }
+            ViewBag.muestraManga = listaRutaManga;
 
             return PartialView();
         }

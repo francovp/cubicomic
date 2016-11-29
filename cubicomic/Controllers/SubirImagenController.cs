@@ -67,7 +67,7 @@ namespace cubicomic.Controllers
 
                 if (file[1] != null && fileExt2 == ".pdf")
                 {
-                    string archivo2 = (user.Id +"pdf" + file[0].FileName).ToLower();
+                    string archivo2 = (user.Id + "-" + categoria + "-" + "pdf" + file[0].FileName).ToLower();
                     String nuevo = null;
                     nuevo = archivo2.Replace(".jpg", ".pdf").Replace(".png", ".pdf");
                     file[0].SaveAs(Server.MapPath("~/Uploads/" + archivo));
