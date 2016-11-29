@@ -11,15 +11,17 @@
 
 	@foreach (var item in ViewBag.lista)
 	{
-		<div class="col-md-4">
-			<img src="Uploads/@item" onclick="openModal();currentSlide(@i)" width="300" height="300" />
+		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+			    <img src="Uploads/@item" onclick="openModal();currentSlide(@i)" class="img-responsive mostrarall-thumbnail" alt="" />
+            </a>
             <br /><br /><br />
 		</div>
 	}
 	@foreach (var item2 in ViewBag.muestraPDF)
 	{
-		<div class="col-md-4">
-			<a class="viewbag-muestrapdf-mostrarall-index" href="@Url.Action(
+		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+			<a class="thumbnail" href="@Url.Action(
 					"Index",
 					"MostrarPDF",
 					new{
@@ -27,7 +29,7 @@
 				},
 				null
 				)">
-				<img src="@Url.Content("/Uploads/"+@item2)" width="300" height="300" />
+				<img src="@Url.Content("/Uploads/"+@item2)"  class="img-responsive mostrarall-thumbnail" alt="" style="width:100%; height: 100%;" />
 			</a>
             <br /><br /><br />
 

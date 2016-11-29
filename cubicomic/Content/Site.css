@@ -275,6 +275,14 @@ p.subidorimageninspirador-carousel-caption {
     height: 300px;
 }
 
+img.img-responsive.mostrarall-thumbnail {
+  display: block;
+  max-width:300px;
+  max-height:320px;
+  width: auto;
+  height: auto;
+}
+
 .carousel.slide.custom {
     width: 100%;
     height: 300px;
