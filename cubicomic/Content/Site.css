@@ -209,7 +209,20 @@ small.header-slogan-footer.home-index {
     margin: 0 auto;
 }
 
-/* /Shared/Account/Register */
+/* /Views/SubirImagen/Index */
+
+.formulario-subirimagen {
+    width: 450px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* /Views/Account/Register */
 
 .formulario-registro {
     width: 300px;
@@ -227,7 +240,7 @@ small.header-slogan-footer.home-index {
     left : -20px;
 }
 
-/* /Shared/Account/Login */
+/* /Views/Account/Login */
 
 .formulario-login {
     width: 300px;
