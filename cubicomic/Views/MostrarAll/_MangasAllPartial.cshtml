@@ -1,16 +1,16 @@
 ﻿<div class="row">
-	@foreach (var item3 in ViewBag.listaComicPartial)
+	@foreach (var item4 in ViewBag.listaMangaAll)
 	{
 		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
 			<a class="thumbnail" href="@Url.Action(
 					"Index",
 					"LectorComic",
 					new{
-					busqueda = item3
+					busqueda = item4
 				},
 				null
 				)">
-				<img src="@Url.Content("/Uploads/"+@item3)" class="img-responsive mostrarall-thumbnail" alt=""  />
+				<img src="@Url.Content("/Uploads/"+@item4)" class="img-responsive mostrarall-thumbnail" alt=""  />
 			</a>
             <br /><br /><br />
 		</div>

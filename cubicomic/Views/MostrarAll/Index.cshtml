@@ -8,11 +8,11 @@
 			<div class="innertube">
 				<h3>Categorias</h3>
 				<ul>
-					<li><a class="tag all" id="accion" href="#">Todos</a></li>
-					<li><a class="tag manga" id="accion" href="#">Mangas</a></li>
-					<li><a class="tag comic" id="accion" href="#">Comics</a></li>
-					<li><a class="tag novel" id="novelas" href="#">Novelas</a></li>
-					<li><a class="tag image" id="accion" href="#">Imagenes</a></li>
+					<li><a class="tag all" href="#">Todos</a></li>
+					<li><a class="tag allmanga" href="#">Mangas</a></li>
+					<li><a class="tag allcomic" href="#">Comics</a></li>
+					<li><a class="tag allnovel" href="#">Novelas</a></li>
+					<li><a class="tag allimage" href="#">Imagenes</a></li>
 
 
 				</ul>
@@ -63,7 +63,7 @@
 <script type="text/javascript">
 	$(document).ready(function () {
 
-		$.get('@Url.Action("/_ImagenesAllPartial")',
+		$.get('@Url.Action("/_AllPartial")',
 				function (data) {
 					$("#target").html(data);
 				});
@@ -73,7 +73,7 @@
 				alert(exception);
 			});
 
-			$.get('@Url.Action("/_ImagenesAllPartial")',
+			$.get('@Url.Action("/_AllPartial")',
 				function (data) {
 					$("#target").html(data);
 				});
@@ -91,6 +91,17 @@
 				});
 		});
 
+        $('a.tag.allimage').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
+
+			$.get('@Url.Action("/_ImagenesAllPartial")',
+				function (data) {
+					$("#target").html(data);
+				});
+		});
+
 		$('a.tag.novel').click(function() {
 			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
 				alert(exception);
@@ -103,14 +114,36 @@
 				});
 		});
 
+        $('a.tag.allnovel').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
+
+			$.get('@Url.Action("/_NovelasAllPartial")',
+				function (data) {
+					$("#target").html(data);
+				});
+        });
+
         $('a.tag.manga').click(function() {
 			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
 				alert(exception);
 			});
 
-			var tagId = $(this).attr('id');
+            var tagId = $(this).attr('id');
 			$.get('@Url.Action("/_MangasPartial")',
 				{ id: tagId }, function (data) {
+					$("#target").html(data);
+				});
+        });
+
+        $('a.tag.allmanga').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
+
+			$.get('@Url.Action("/_MangasAllPartial")',
+				function (data) {
 					$("#target").html(data);
 				});
         });
@@ -123,6 +156,17 @@
 			var tagId = $(this).attr('id');
 			$.get('@Url.Action("/_ComicsPartial")',
 				{ id: tagId }, function (data) {
+					$("#target").html(data);
+				});
+        });
+
+        $('a.tag.allcomic').click(function() {
+			$("#log").ajaxError(function (event, jqxhr, settings, exception) {
+				alert(exception);
+			});
+
+			$.get('@Url.Action("/_ComicsAllPartial")',
+				function (data) {
 					$("#target").html(data);
 				});
 		});

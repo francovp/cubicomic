@@ -1,6 +1,6 @@
 ﻿@{
     var i = 1;
-    foreach (var item in ViewBag.lista)
+    foreach (var item in ViewBag.listaImagenAll)
     {
         i = i + 1;
     }
@@ -9,63 +9,12 @@
 
 <div class="row">
 
-	@foreach (var item in ViewBag.lista)
+	@foreach (var item in ViewBag.listaImagenAll)
 	{
 		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
             <a class="thumbnail" href="#">
 			    <img src="Uploads/@item" onclick="openModal();currentSlide(@i)" class="img-responsive mostrarall-thumbnail" alt="" />
             </a>
-            <br /><br /><br />
-		</div>
-	}
-	@foreach (var item2 in ViewBag.muestraPDF)
-	{
-		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-			<a class="thumbnail" href="@Url.Action(
-					"Index",
-					"MostrarPDF",
-					new{
-					busqueda = item2
-				},
-				null
-				)">
-				<img src="@Url.Content("/Uploads/"+@item2)" class="img-responsive mostrarall-thumbnail" alt="" />
-			</a>
-            <br /><br /><br />
-
-		</div>
-
-	}
-    @foreach (var item3 in ViewBag.muestraComic)
-	{
-		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-			<a class="thumbnail" href="@Url.Action(
-					"Index",
-					"LectorComic",
-					new{
-					busqueda = item3
-				},
-				null
-				)">
-				<img src="@Url.Content("/Uploads/"+@item3)" class="img-responsive mostrarall-thumbnail" alt=""  />
-			</a>
-            <br /><br /><br />
-		</div>
-	}
-
-    @foreach (var item4 in ViewBag.muestraManga)
-	{
-		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-			<a class="thumbnail" href="@Url.Action(
-					"Index",
-					"LectorComic",
-					new{
-					busqueda = item4
-				},
-				null
-				)">
-				<img src="@Url.Content("/Uploads/"+@item4)" class="img-responsive mostrarall-thumbnail" alt=""  />
-			</a>
             <br /><br /><br />
 		</div>
 	}

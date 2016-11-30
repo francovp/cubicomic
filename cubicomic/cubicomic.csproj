@@ -369,13 +369,17 @@
     <Content Include="Views\SubirImagen\_PDF.cshtml" />
     <Content Include="Views\SubirImagen\_Comic.cshtml" />
     <Content Include="Views\MostrarAll\_ImagenesPartial.cshtml" />
-    <Content Include="Views\MostrarAll\_ImagenesAllPartial.cshtml" />
+    <Content Include="Views\MostrarAll\_AllPartial.cshtml" />
     <Content Include="Views\MostrarAll\_NovelasPartial.cshtml" />
     <Content Include="Views\MostrarAll\_GaleriaPartial.cshtml" />
     <Content Include="Views\LectorComic\Index.cshtml" />
     <Content Include="Views\SubirImagen\_manga.cshtml" />
     <Content Include="Views\MostrarAll\_MangasPartial.cshtml" />
     <Content Include="Views\MostrarAll\_ComicsPartial.cshtml" />
+    <Content Include="Views\MostrarAll\_ImagenesAllPartial.cshtml" />
+    <Content Include="Views\MostrarAll\_MangasAllPartial.cshtml" />
+    <Content Include="Views\MostrarAll\_NovelasAllPartial.cshtml" />
+    <Content Include="Views\MostrarAll\_ComicsAllPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
