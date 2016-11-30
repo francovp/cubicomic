@@ -14,11 +14,11 @@
                 <h4>Use su cuenta local</h4>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Nombre de Usuario"  })
                         @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Contraseña"  })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">

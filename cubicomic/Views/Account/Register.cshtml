@@ -35,8 +35,11 @@
                 <div class="form-group">
                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirmar contraseña" })
                 </div>
-                <div class="form-group form-avatar">
-                    <input type="file" class="btn btn-default" id="Avatar" name="upload"/>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Avatar, new { @class = "col-md-3 control-label col-centered" })
+                    <div class="col-md-12">
+                        <input type="file" class="btn btn-default" id="Avatar" name="upload"/>
+                    </div>
                 </div>
                 <br />
                 <div class="form-group">
