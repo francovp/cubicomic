@@ -16,9 +16,7 @@
                 </div>
                 <div class="row" id="header-button">
                     <div class="col-md-2 col-centered">
-                        <button type="button" class="btn btn-danger btn-lg">
-                            Subir Archivo
-                        </button>
+                        @Html.ActionLink("Subir tu creación", "Index", "SubirImagen", routeValues: null, htmlAttributes: new { @class = "btn btn-danger btn-lg", id = "subirArchivoButton" })
                     </div>
                 </div>
             </div>
