@@ -11,8 +11,8 @@
 
 	@foreach (var item in ViewBag.lista)
 	{
-		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#">
+		<div class="col-md-3 col-sm-4 col-xs-6 thumb">
+            <a class="thumbnail-mostrarall" href="#">
 			    <img src="Uploads/@item" onclick="openModal();currentSlide(@i)" class="img-responsive mostrarall-thumbnail" alt="" />
             </a>
             <br /><br /><br />
@@ -20,8 +20,8 @@
 	}
 	@foreach (var item2 in ViewBag.muestraPDF)
 	{
-		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-			<a class="thumbnail" href="@Url.Action(
+		<div class="col-md-3 col-sm-4 col-xs-6 thumb">
+			<a class="thumbnail-mostrarall" href="@Url.Action(
 					"Index",
 					"MostrarPDF",
 					new{
@@ -38,8 +38,8 @@
 	}
     @foreach (var item3 in ViewBag.muestraComic)
 	{
-		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-			<a class="thumbnail" href="@Url.Action(
+		<div class="col-md-3 col-sm-4 col-xs-6  thumb">
+			<a class="thumbnail-mostrarall" href="@Url.Action(
 					"Index",
 					"LectorComic",
 					new{
@@ -55,8 +55,8 @@
 
     @foreach (var item4 in ViewBag.muestraManga)
 	{
-		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-			<a class="thumbnail" href="@Url.Action(
+		<div class="col-md-3 col-sm-4 col-xs-6 thumb">
+			<a class="thumbnail-mostrarall" href="@Url.Action(
 					"Index",
 					"LectorComic",
 					new{
