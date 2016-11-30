@@ -2,35 +2,38 @@
 @{
     ViewBag.Title = "Registrarse";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>Asocie su cuenta @ViewBag.LoginProvider.</h3>
+<div class="row">
+    <div class="col-md-10 col-centered formulario-registro-facebook">
+        <h2>@ViewBag.Title.</h2>
+        <h3>Asocie su cuenta @ViewBag.LoginProvider.</h3>
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
+        @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <hr />
+            <h4>Formulario de asociación</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+             @*Estos datos se deberían obtener desde Facebook...*@
+            <p class="text-info">
+                Se autenticó correctamente con <strong>@ViewBag.LoginProvider</strong>.
+                Introduzca un nombre y apellido para este sitio y haga clic en el botón Registrar para finalizar
+                el inicio de sesión. 
+            </p>
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Primer Nombre" })
+            </div>
 
-    <h4>Formulario de asociación</h4>
- <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-     @*Estos datos se deberían obtener desde Facebook...*@
-    <p class="text-info">
-        Se autenticó correctamente con <strong>@ViewBag.LoginProvider</strong>.
-        Introduzca un nombre y apellido para este sitio y haga clic en el botón Registrar para finalizar
-        el inicio de sesión. 
-    </p>
-    <div class="form-group">
-        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Primer Nombre" })
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Apellido" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-1 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Registrarse" />
+                </div>
+            </div>
+        }
     </div>
-
-    <div class="form-group">
-        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Apellido" })
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Registrarse" />
-        </div>
-    </div>
-}
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

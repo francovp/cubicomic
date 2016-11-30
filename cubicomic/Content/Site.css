@@ -236,6 +236,17 @@ small.header-slogan-footer.home-index {
 	box-sizing: border-box;
 }
 
+.formulario-registro-facebook {
+	width: 300px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	padding: 60px 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 .formulario-registro .btn{
 	position:relative;
 	left : -20px;
