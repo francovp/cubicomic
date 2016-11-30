@@ -46,11 +46,12 @@
         </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
-    <IncludeIisSettings>false</IncludeIisSettings>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
     <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -254,20 +255,6 @@
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\mostrarall.css" />
     <Content Include="Content\tipovisual.css" />
-    <Content Include="Img\close.png" />
-    <Content Include="Img\Index\collague_autores_famosos.jpg" />
-    <Content Include="Img\Index\collague_logo_empresa_1.png" />
-    <Content Include="Img\Index\collague_logo_empresa_2.png" />
-    <Content Include="Img\Index\creando_manga_1.jpg" />
-    <Content Include="Img\Index\creando_manga_2.jpg" />
-    <Content Include="Img\Index\diseñando.jpg" />
-    <Content Include="Img\Index\escribiendo_1.jpg" />
-    <Content Include="Img\Index\escribiendo_2.jpg" />
-    <Content Include="Img\Index\idea_1.jpg" />
-    <Content Include="Img\Index\idea_2.jpg" />
-    <Content Include="Img\Index\idea_3.png" />
-    <Content Include="Img\Index\logo-release.png" />
-    <Content Include="Img\Index\logo.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -283,17 +270,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Properties\PublishProfiles\CubiComic - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\CubiComic - Web Deploy.pubxml" />
-    <Content Include="Img\Index\logoSmall.png" />
-    <Content Include="Img\Index\subidorImagenInspiradorBackground.jpg" />
-    <Content Include="Img\loading.gif" />
-    <Content Include="Img\next.png" />
-    <Content Include="Img\prev.png" />
+    <None Include="Properties\PublishProfiles\cubicomic2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Img\Index\mini_logo.png" />
-    <Content Include="Img\Index\pintando.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -383,9 +363,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UploadsComic\" />
-    <Folder Include="UploadsPDF\" />
-    <Folder Include="Uploads\" />
     <Folder Include="Views\BuscarCategoria\" />
   </ItemGroup>
   <ItemGroup>
