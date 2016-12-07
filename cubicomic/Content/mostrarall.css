@@ -77,3 +77,44 @@ nav ul {
         color: #ff0000;
         text-decoration: none;
     }
+
+ .image-wrapper{
+    float:left;
+    position: relative;
+}
+ .image-novela{
+    position:absolute;
+    top:240px;
+    left:50px;
+    background-color:blue;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px 4px 10px;
+    opacity: 1;
+    filter:alpha(opacity=0); /*IE fix*/
+}
+  .image-manga{
+    position:absolute;
+    top:240px;
+    left:50px;
+    background-color:#12BF07;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px 4px 10px;
+    opacity: 1;
+    filter:alpha(opacity=0); /*IE fix*/
+}
+   .image-comic{
+    position:absolute;
+    top:240px;
+    left:50px;
+    background-color:#FF0000;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px 4px 10px;
+    opacity: 1;
+    filter:alpha(opacity=0); /*IE fix*/
+}
