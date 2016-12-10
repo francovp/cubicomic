@@ -1,6 +1,17 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
+
+@{
+   if (TempData["notice"] != null) {
+   <text>
+   <script type="text/javascript">
+     alert('@TempData["notice"]');
+   </script>
+   </text>
+   }
+}
+
 @if (Request.IsAuthenticated)
 {
     @Html.Partial("_BienvenidaHeaderPartial")

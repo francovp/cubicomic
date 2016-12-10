@@ -10,6 +10,14 @@ namespace cubicomic.Controllers
     {
         public ActionResult Index()
         {
+            if (Request.Browser.Type.ToUpper() == "IE5" || 
+                Request.Browser.Type.ToUpper() == "IE6" || 
+                Request.Browser.Type.ToUpper() == "IE7" ||
+                Request.Browser.Type.ToUpper() == "IE8" || 
+                Request.Browser.Type.ToUpper() == "IE9")
+            {
+                TempData["notice"] = "Para utilizar todas las funciones de la página, por favor actualice su navegador";
+            }
             return View();
         }
 
