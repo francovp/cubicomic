@@ -3,11 +3,22 @@
     ViewBag.Title = "Index";
 }
 <div class="row">
+
+    <a href="@Url.Action(
+					"Pagina",
+					"LectorComic",
+					new{
+					busqueda = ViewBag.busco
+				},
+				null
+				)">
+				<img src="../Img/pagina.png" />
+			</a>
     <div class="col-md-8 col-centered"> 
        @foreach (var item in ViewBag.comic)
        {
               
-           <img src="UploadsComic/@ViewBag.Ruta/@item" />
+           <img src="UploadsComic/@ViewBag.Ruta/@item"  />
        }
     </div>
 </div>

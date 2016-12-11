@@ -12,7 +12,34 @@ namespace cubicomic.Controllers
         // GET: LectorComic
         public ActionResult Index(String busqueda)
         {
-            String nuevo = null;
+            ViewBag.busco = busqueda;
+            buscarComic(busqueda);
+            return View();
+        }
+
+        public ActionResult Pagina(String busqueda)
+        {
+            ViewBag.busco = busqueda;
+            buscarComic(busqueda);
+            return View();
+        }
+
+        public class CustomComparer : IComparer
+        {
+            Comparer _comparer = new Comparer(System.Globalization.CultureInfo.CurrentCulture);
+
+            public int Compare(object x, object y)
+            {
+                // Convert string comparisons to int
+                x = ((string)x).Replace(".jpg", "").Replace(".png", "");
+                y = ((string)y).Replace(".jpg", "").Replace(".png", "");
+
+                return _comparer.Compare(Convert.ToInt32(x), Convert.ToInt32(y));
+            }
+        }
+        public void buscarComic(string busqueda)
+         {
+            string nuevo = null;
             ViewBag.Ruta = busqueda;
             ArrayList comic = new ArrayList();
             var carpeta = Server.MapPath("~") + @"UploadsComic/" + busqueda;
@@ -26,22 +53,7 @@ namespace cubicomic.Controllers
             }
             comic.Sort(new CustomComparer());
             ViewBag.comic = comic;
-            return View();
         }
 
-        public class CustomComparer : IComparer
-        {
-            Comparer _comparer = new Comparer(System.Globalization.CultureInfo.CurrentCulture);
-
-            public int Compare(object x, object y)
-            {
-                // Convert string comparisons to int
-                x = ((string)x).Replace(".jpg", "").Replace(".png", "");
-                Debug.Print((string)x);
-                y = ((string)y).Replace(".jpg", "").Replace(".png", "");
-
-                return _comparer.Compare(Convert.ToInt32(x), Convert.ToInt32(y));
-            }
-        }
     }
    }

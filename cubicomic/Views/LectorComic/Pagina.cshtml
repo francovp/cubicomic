@@ -1,0 +1,100 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.Web.Mvc
+@using cubicomic.Models
+@using cubicomic.DAL
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin
+<link rel="stylesheet" href="~/Content/LectorComic.css" />
+  <a href="@Url.Action(
+					"Index",
+					"LectorComic",
+					new{
+					busqueda = ViewBag.busco
+				},
+				null
+				)">
+				<img src="../Img/cascada.png" />
+			</a>
+<div class="row">
+    @{
+        var i = 1;
+        foreach (var item in ViewBag.comic)
+        {
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img src="../UploadsComic/@ViewBag.Ruta/@item" onclick="openModal();currentSlide(@i)" class="img-responsive" alt="" style="width:100%; height: auto;" >
+                </a>
+            </div>
+            i = i + 1;
+        }
+        var total = i - 1;
+    }
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        @{
+            i = 1;
+            foreach (var item in ViewBag.comic)
+            {
+                <center>
+                    <div class="mySlides thumbnail-galeria">
+                        <div class="numbertext">@i / @total</div>
+                        <img src="../UploadsComic/@ViewBag.Ruta/@item" style="width:50%; height: auto;">
+                    </div>
+                </center>
+                i = i + 1;
+            }
+        }
+
+        <br /><br />
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+     
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('myModal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
