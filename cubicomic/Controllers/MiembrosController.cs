@@ -193,6 +193,13 @@ namespace cubicomic.Controllers
                 return View();
             }
         }
-
+        public ActionResult _donacion()
+        {
+            return View();
+        }
+        public void SetCuentaDonacion (string email)
+        {
+            //aca recivo el correo a modficar y guardo en la base de datos
+        }
     }
 }

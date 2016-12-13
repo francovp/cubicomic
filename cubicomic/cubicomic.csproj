@@ -396,6 +396,7 @@
     <Content Include="Views\MostrarAll\_NovelasAllPartial.cshtml" />
     <Content Include="Views\MostrarAll\_ComicsAllPartial.cshtml" />
     <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Miembros\_donacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
