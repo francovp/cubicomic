@@ -49,7 +49,7 @@ namespace cubicomic.Controllers
         }
 
         [HttpPost]
-        public ActionResult SubirPDF(HttpPostedFileBase[] file, String categoria)
+        public ActionResult SubirPDF(HttpPostedFileBase[] file, String categoria, string nombre)
         {
             string fileExt = Path.GetExtension(file[0].FileName).ToLower();
             string fileName = Path.GetFileName(file[0].FileName);
@@ -63,11 +63,11 @@ namespace cubicomic.Controllers
                
                 string fileExt2 = Path.GetExtension(file[1].FileName).ToLower();
                 string fileName2 = Path.GetFileName(file[1].FileName);
-                string archivo = (user.Id + "-" + categoria + "-" + "pdf" + file[0].FileName).ToLower();
+                string archivo = (user.Id + "-" + categoria + "-" + "pdf" + nombre + fileExt).ToLower();
 
                 if (file[1] != null && fileExt2 == ".pdf")
                 {
-                    string archivo2 = (user.Id + "-" + categoria + "-" + "pdf" + file[0].FileName).ToLower();
+                    string archivo2 = (user.Id + "-" + categoria + "-" + "pdf" + nombre + fileExt2).ToLower();
                     String nuevo = null;
                     nuevo = archivo2.Replace(".jpg", ".pdf").Replace(".png", ".pdf");
                     file[0].SaveAs(Server.MapPath("~/Uploads/" + archivo));
@@ -80,7 +80,7 @@ namespace cubicomic.Controllers
             return RedirectToAction("Index", "SubirImagen");
         }
 
-        public ActionResult SubirComic(IEnumerable<HttpPostedFileBase> comic, HttpPostedFileBase[] portada, String categoria)
+        public ActionResult SubirComic(IEnumerable<HttpPostedFileBase> comic, HttpPostedFileBase[] portada, String categoria, string nombre)
         {
           
             string fileExt = Path.GetExtension(portada[0].FileName).ToLower();
@@ -88,7 +88,7 @@ namespace cubicomic.Controllers
             if (portada != null && (fileExt == ".png" || fileExt == ".jpg"))
             {
 
-                string archivoP = (user.Id + "-" + categoria + "-" + "-comic-" + portada[0].FileName).ToLower();
+                string archivoP = (user.Id + "-" + categoria + "-" + "-comic-" + nombre + fileExt).ToLower();
                 Directory.CreateDirectory(Server.MapPath("~/UploadsComic/" + archivoP));
                 if (comic != null)
                 {
@@ -109,7 +109,7 @@ namespace cubicomic.Controllers
             return RedirectToAction("Index", "SubirImagen");
         }
 
-        public ActionResult SubirManga(IEnumerable<HttpPostedFileBase> comic, HttpPostedFileBase[] portada, String categoria)
+        public ActionResult SubirManga(IEnumerable<HttpPostedFileBase> comic, HttpPostedFileBase[] portada, String categoria, string nombre)
         {
 
             string fileExt = Path.GetExtension(portada[0].FileName).ToLower();
@@ -117,7 +117,7 @@ namespace cubicomic.Controllers
             if (portada != null && (fileExt == ".png" || fileExt == ".jpg"))
             {
 
-                string archivoP = (user.Id + "-" + categoria + "-" + "-manga-" + portada[0].FileName).ToLower();
+                string archivoP = (user.Id + "-" + categoria + "-" + "-manga-" + nombre + fileExt).ToLower();
                 Directory.CreateDirectory(Server.MapPath("~/UploadsComic/" + archivoP));
                 if (comic != null)
                 {

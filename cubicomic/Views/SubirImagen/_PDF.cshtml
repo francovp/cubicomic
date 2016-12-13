@@ -2,9 +2,11 @@
 @{
     ViewBag.Title = "_PDF";
 }
-
+Escribe un titulo para la novela:
 @using (Html.BeginForm("subirPDF", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+        
+      <input type="text" name="nombre" value="" />
      <select name="categoria" class="form-control">
         <option value="-.accion.-">Acción</option>
         <option value="-.comedia.-">Comedia</option>

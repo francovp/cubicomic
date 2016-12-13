@@ -3,11 +3,12 @@
     ViewBag.Title = "_manga";
 }
 
-
+ Escribe un titulo para el manga:
 
 @using (Html.BeginForm("SubirManga", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    
+   
+                     <input type="text" name="nombre" value="" />
     <select name="categoria" class="form-control">
         <option value="-.shonen.-">Shōnen</option>
         <option value="-.josei.-">Josei</option>
