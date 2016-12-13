@@ -10,7 +10,6 @@ namespace cubicomic.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "cubicomic.DAL.ApplicationDbContext";
         }
 
         protected override void Seed(cubicomic.DAL.ApplicationDbContext context)
