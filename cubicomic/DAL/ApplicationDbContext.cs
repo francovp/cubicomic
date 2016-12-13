@@ -19,8 +19,6 @@ namespace cubicomic.DAL
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<cubicomic.Models.ApplicationUser> ApplicationUsers { get; set; }
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
         //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
