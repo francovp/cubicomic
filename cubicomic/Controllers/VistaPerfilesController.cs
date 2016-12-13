@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace cubicomic.Controllers
 {
-    public class PerfilController : Controller
+    public class VistaPerfilesController : Controller
     {
-        // GET: Perfil
+        // GET: VistaPerfiles
         public ActionResult Index()
         {
             var context = new IdentityDbContext();

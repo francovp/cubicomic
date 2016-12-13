@@ -9,8 +9,8 @@ namespace cubicomic.DAL
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-           // : base("TestConnection", throwIfV1Schema: false)
-           : base("LocalConnection", throwIfV1Schema: false)
+            : base("TestConnection", throwIfV1Schema: false)
+           //: base("LocalConnection", throwIfV1Schema: false)
         {
         }
         public DbSet<File> Files { get; set; }
@@ -19,8 +19,6 @@ namespace cubicomic.DAL
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<cubicomic.Models.ApplicationUser> ApplicationUsers { get; set; }
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
         //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
