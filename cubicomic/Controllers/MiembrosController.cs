@@ -10,27 +10,28 @@ using System.IO;
 using System.Collections.Generic;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace cubicomic.Controllers
 {
     public class MiembrosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
         // GET: Miembros
-        public ActionResult Perfil()
+        public ActionResult Perfil(string id)
         {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
             //Datos del usuario
             PerfilViewModel model = new PerfilViewModel();
             model.UserName = user.UserName;
             model.FirstName = user.FirstName;
             model.LastName = user.LastName;
-            model.CompleteName = user.FirstName + " " + user.LastName; 
+            model.CompleteName = user.FirstName + " " + user.LastName;
             model.Email = user.Email;
             model.Avatar = user.Avatar;
 
-            //Archivos 
+            //Archivos
 
             List<string> listaRutaImagenes = new List<string>();
             var carpeta = Server.MapPath("~") + @"Uploads";
@@ -52,9 +53,10 @@ namespace cubicomic.Controllers
         // GET: Image
         public ActionResult ShowAvatar()
         {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             //var imageId = db.Files.Find(id);
             //File image = db.Files.Include(s => s.File).SingleOrDefault(s => s.ID == id);
-          try
+            try
             {
                 var imageData = user.Avatar.Content;
                 var imageType = user.Avatar.ContentType;
@@ -64,9 +66,9 @@ namespace cubicomic.Controllers
             {
                 return null;
             }
-           
-            
-                     
+
+
+
         }
 
         public ActionResult Galeria()
@@ -122,7 +124,7 @@ namespace cubicomic.Controllers
         //}
 
         // POST: miembro/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
