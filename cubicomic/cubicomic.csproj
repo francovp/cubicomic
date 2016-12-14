@@ -397,7 +397,6 @@
     <Content Include="Views\MostrarAll\_MangasAllPartial.cshtml" />
     <Content Include="Views\MostrarAll\_NovelasAllPartial.cshtml" />
     <Content Include="Views\MostrarAll\_ComicsAllPartial.cshtml" />
-    <Content Include="Views\Miembros\_Modificar.cshtml" />
     <Content Include="Views\LectorComic\Pagina.cshtml" />
     <Content Include="Views\Miembros\_donacion.cshtml" />
     <Content Include="Views\Home\_CreadoresPartial.cshtml" />
