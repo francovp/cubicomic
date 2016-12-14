@@ -1,0 +1,31 @@
+﻿
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="~/Content/perfil.css" />
+
+<div class="container">
+    <div class="creadoresDestacados-titulo-home-index">
+        Descubre qué están haciendo los creadores de Cubicomic
+    </div>
+    <br />
+    <div class="row creadoresDestacados-home-index">
+        @foreach ( var item in ViewBag.usuarios )
+        {
+            <div class="col-md-3 creator-box clearfix">
+                <div class="thumbnail clearfix">
+                    <div class="consejos-userpic">
+                        <img class="navbar-left" style='margin-right:10px' src="@Url.Action("ShowAvatar", "Miembros", new { id = item.Id })" />
+                    </div>
+                    <div class="caption " class="navbar-left">
+                        <p>
+                            @Html.ActionLink((string)item.FirstName + " " + (string)item.LastName, "Perfil", "Miembros", new { id = item.Id }, FormMethod.Post)
+                        </p>
+                        <input type="button" class="btn btn-success btn-md" value="Ver Perfil" onclick="location.href='@Url.Action("Perfil", "Miembros", new { id = item.Id })'" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

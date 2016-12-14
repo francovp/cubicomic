@@ -217,7 +217,6 @@
     <Compile Include="Controllers\MiembrosController.cs" />
     <Compile Include="Controllers\MostrarAllController.cs" />
     <Compile Include="Controllers\MostrarPDFController.cs" />
-    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\SubirImagenController.cs" />
     <Compile Include="DAL\CubicomicConfiguration.cs" />
     <Compile Include="Global.asax.cs">
@@ -397,6 +396,7 @@
     <Content Include="Views\MostrarAll\_ComicsAllPartial.cshtml" />
     <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Miembros\_donacion.cshtml" />
+    <Content Include="Views\Home\_CreadoresPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
