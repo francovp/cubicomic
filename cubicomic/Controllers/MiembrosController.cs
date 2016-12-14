@@ -33,6 +33,11 @@ namespace cubicomic.Controllers
             model.CompleteName = user.FirstName + " " + user.LastName;
             model.Email = user.Email;
             model.Avatar = user.Avatar;
+            if(user.emailDonacion != null)
+            {
+                ViewBag.donacion = user.emailDonacion;
+
+            }
 
             //Archivos
 
