@@ -1,20 +1,20 @@
 ﻿@if (Request.IsAuthenticated)
 {
     <div class="row">
-        <div class="header home-index fluid-ratio-resize" style="background-image:url(../../Img/Index/subidorImagenInspiradorBackground.jpg);">
-            <div class="header-content">
-                <div class="row" id="header-slogan">
-                    <div class="col-md-8 col-centered">
-                        <p class="header-slogan home-index">
+        <div class="header-home-index fluid-ratio-resize" style="background-image:url(../../Img/Index/subidorImagenInspiradorBackground.jpg);">
+            <div class="header-content-home-index">
+                <div class="row">
+                    <div class="col-md-8 col-centered header-slogan-home-index">
+                        <p>
                             Creer y crear están a sólo una letra de distancia, ¿te atreverás hoy a escribirla?
                         </p>
                         <center>
-                            <small class="header-slogan-footer home-index">Equipo CUBIComic  <cite>-Hazlo Posible-</cite></small>
+                            <small class="header-slogan-footer-home-index">Equipo CUBIComic  <cite>-Hazlo Posible-</cite></small>
                         </center>
                         <br />
                     </div>
                 </div>
-                <div class="row" id="header-button">
+                <div class="row" id="header-button-home-index">
                     <div class="col-md-2 col-centered">
                         @Html.ActionLink("Subir tu creación", "Index", "SubirImagen", routeValues: null, htmlAttributes: new { @class = "btn btn-danger btn-lg", id = "subirArchivoButton" })
                     </div>
@@ -26,11 +26,11 @@
 else
 {
     <div class="row">
-        <div class="header home-index" style="background-image:url(../../Img/Index/subidorImagenInspiradorBackground.jpg);">
-            <div class="header-content">
+        <div class="header-home-index" style="background-image:url(../../Img/Index/subidorImagenInspiradorBackground.jpg);">
+            <div class="header-content-home-index">
                 <div class="row">
-                    <div class="col-md-8 col-centered">
-                        <p class="header-slogan home-index">
+                    <div class="col-md-8 col-centered header-slogan-home-index">
+                        <p>
                             Comienza a ganar dinero <br />
                             con tus creaciones.
                         </p>
