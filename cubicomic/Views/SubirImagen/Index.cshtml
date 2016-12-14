@@ -2,6 +2,17 @@
     ViewBag.Title = "Subir Imagen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@{
+   if (TempData["notice"] != null) {
+   <text>
+   <script type="text/javascript">
+     alert('@TempData["notice"]');
+   </script>
+   </text>
+   }
+}
+
 <div class="row">
     <div class="col-sm-9 col-centered formulario-subirimagen">
         <ul class="nav nav-tabs">
