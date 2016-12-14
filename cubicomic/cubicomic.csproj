@@ -394,9 +394,9 @@
     <Content Include="Views\MostrarAll\_MangasAllPartial.cshtml" />
     <Content Include="Views\MostrarAll\_NovelasAllPartial.cshtml" />
     <Content Include="Views\MostrarAll\_ComicsAllPartial.cshtml" />
-    <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Miembros\_donacion.cshtml" />
     <Content Include="Views\Home\_CreadoresPartial.cshtml" />
+    <Content Include="Views\SubirImagen\_Imagen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

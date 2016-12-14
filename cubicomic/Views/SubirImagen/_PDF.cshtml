@@ -3,20 +3,27 @@
     ViewBag.Title = "_PDF";
 }
 
-@using (Html.BeginForm("subirPDF", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using ( Html.BeginForm("subirPDF", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }) )
 {
-     <select name="categoria" class="form-control">
-        <option value="-.accion.-">Acción</option>
-        <option value="-.comedia.-">Comedia</option>
-        <option value="-.terror.-">Terror</option>
-        <option value="-.historia.-">Historias de vidas</option>
-        <option value="-.sobrenatural.-">Sobre natural</option>
-    </select>
-    <h2>Subir Portada del PDF</h2>
-    <input type="file" name="file" accept=".JPG,.PNG" /> 
-    <br />
-    <h2>Subir el PDF</h2>
-    <input type="file" name="file" accept=".PDF" /> 
-    <br />
-    <button type="submit">Subir archivo</button>
+    <div class="form-group">
+        @Html.Label("Categoría", htmlAttributes: new { @class = "control-label col-md-3" })
+        <select name="categoria" class="form-control">
+            <option value="-.accion.-">Acción</option>
+            <option value="-.comedia.-">Comedia</option>
+            <option value="-.terror.-">Terror</option>
+            <option value="-.historia.-">Historias de vidas</option>
+            <option value="-.sobrenatural.-">Sobre natural</option>
+        </select>
+    </div>
+    <div class="form-group">
+        @Html.Label("Portada", htmlAttributes: new { @class = "control-label col-md-3" })
+        <input class="btn btn-default" type="file" name="file" accept=".JPG,.PNG" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Subir el PDF", htmlAttributes: new { @class = "control-label col-md-3" })
+        <input class="btn btn-default" type="file" name="file" accept=".PDF" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" type="submit">Subir archivo</button>
+    </div>
 }

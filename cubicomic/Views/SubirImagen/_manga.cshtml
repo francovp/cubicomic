@@ -7,21 +7,26 @@
 
 @using (Html.BeginForm("SubirManga", "SubirImagen", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    
-    <select name="categoria" class="form-control">
-        <option value="-.shonen.-">Shōnen</option>
-        <option value="-.josei.-">Josei</option>
-        <option value="-.kodomo.-">Kodomo</option>
-        <option value="-.seinen.-">Seinen</option>
-        <option value="-.shojo.-">Shōjo</option>
-    </select>
-
-    <h2>Portada del Manga</h2>
-    <input type="file" name="portada" accept=".JPG,.PNG"/> 
-    <br />
-    <h2>Subir el Manga: las paginas deben ir numeradas en 1,2,3,4... </h2>
-    <input type="file" multiple="multiple" name="comic" accept=".JPG,.PNG" /> 
-    <br />
-    <button type="submit">Subir archivo</button>
+    <div class="form-group">
+        @Html.Label("Categoría", htmlAttributes: new { @class = "control-label col-md-3" })
+        <select name="categoria" class="form-control">
+            <option value="-.shonen.-">Shōnen</option>
+            <option value="-.josei.-">Josei</option>
+            <option value="-.kodomo.-">Kodomo</option>
+            <option value="-.seinen.-">Seinen</option>
+            <option value="-.shojo.-">Shōjo</option>
+        </select>
+    </div>
+    <div class="form-group">
+        @Html.Label("Portada", htmlAttributes: new { @class = "control-label col-md-3" })
+        <input class="btn btn-default" type="file" name="file" accept=".JPG,.PNG" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Subir las páginas", htmlAttributes: new { @class = "control-label col-md-3" })
+            <input class="btn btn-default" type="file" multiple="multiple" name="comic" accept=".JPG,.PNG" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" type="submit">Subir archivo</button>
+    </div>
 }
 
