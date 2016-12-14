@@ -106,15 +106,27 @@ nav ul {
     opacity: 1;
     filter:alpha(opacity=0); /*IE fix*/
 }
-   .image-comic{
-    position:absolute;
-    top:240px;
-    left:50px;
-    background-color:#FF0000;
+.image-comic {
+    position: absolute;
+    top: 240px;
+    left: 50px;
+    background-color: #FF0000;
     color: white;
     font-size: 14px;
     font-weight: bold;
     padding: 4px 10px 4px 10px;
     opacity: 1;
-    filter:alpha(opacity=0); /*IE fix*/
+    filter: alpha(opacity=0); /*IE fix*/
 }
+    .image-imagen{
+    position: absolute;
+    top: 240px;
+    left: 50px;
+    background-color: #ffd800;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px 4px 10px;
+    opacity: 1;
+    filter: alpha(opacity=0); /*IE fix*/
+    }
