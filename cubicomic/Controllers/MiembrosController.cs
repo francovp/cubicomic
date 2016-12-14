@@ -21,6 +21,8 @@ namespace cubicomic.Controllers
         // GET: Miembros
         public ActionResult Perfil(string id)
         {
+            ApplicationUser test = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            if (id.Equals(test.Id)) ViewBag.paso = "true";
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
             //Datos del usuario
             PerfilViewModel model = new PerfilViewModel();
