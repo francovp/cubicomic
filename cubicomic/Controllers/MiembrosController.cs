@@ -193,22 +193,20 @@ namespace cubicomic.Controllers
                 return View();
             }
         }
-        public ActionResult donacion(string email)
+        public ActionResult _donacion(string email)
         {
-            Debug.WriteLine("My debug string here");
-            Debug.WriteLine("My debug string here");
-            Debug.WriteLine("My debug string here");
-            Debug.WriteLine("My debug string here");
-            Debug.WriteLine("My debug string here");
-            Debug.WriteLine("el mail es AAAAAAACAAAAAA CTM : " + email);
-
+            return View();
+        }
+        [HttpPost]
+        public ActionResult getDonacion(string email)
+        {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            var original = db.Users.Find(user.Id);
-           
-            var sql = @"Update [dbo.AspNetUsers] SET emailDonacion = {0} WHERE Id = {1}";
-            db.Database.ExecuteSqlCommand(sql, email, user.Id);
-            db.SaveChanges();
-            return RedirectToAction("Perfil", "Miembros");
+          var original = db.Users.Find(user.Id);
+
+          var sql = @"Update [AspNetUsers] SET emailDonacion = {0} WHERE Id = {1}";
+          db.Database.ExecuteSqlCommand(sql, email, user.Id);
+          db.SaveChanges();
+            return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
         }
     }
 }

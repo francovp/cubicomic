@@ -1,12 +1,13 @@
 ﻿
 Si deseas recibir donaciones por tu trabajo, introduce tu correo de paypal para que recibas donaciones por tu trabajo
-
-<form method="post">
+@using (Html.BeginForm("getDonacion", "Miembros", FormMethod.Post))
+{
+    <form method="post">
   Escribe tu corre de paypal:
   <input type="text" name="email" value="" />
  
-  <br/>
- 
   <input type="submit" value="Enviar" />
 </form>
+}
+
 
