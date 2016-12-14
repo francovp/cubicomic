@@ -397,6 +397,7 @@
     <Content Include="Views\Miembros\_donacion.cshtml" />
     <Content Include="Views\Home\_CreadoresPartial.cshtml" />
     <Content Include="Views\SubirImagen\_Imagen.cshtml" />
+    <Content Include="Views\Miembros\ConfigCuenta2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,12 +17,9 @@ namespace cubicomic.Controllers
     public class MiembrosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: Miembros
         public ActionResult Perfil(string id)
         {
-            ApplicationUser test = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            if (id.Equals(test.Id)) ViewBag.paso = "true";
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
             //Datos del usuario
             PerfilViewModel model = new PerfilViewModel();
@@ -84,9 +81,41 @@ namespace cubicomic.Controllers
             return View();
         }
 
-        public ActionResult ConfigCuenta()
+        public ActionResult ConfigCuenta2(string id)
         {
-            return View();
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
+            //Datos del usuario
+            PerfilViewModel model = new PerfilViewModel();
+            model.Id = user.Id;
+            model.UserName = user.UserName;
+            model.FirstName = user.FirstName;
+            model.LastName = user.LastName;
+            model.CompleteName = user.FirstName + " " + user.LastName;
+            model.Email = user.Email;
+            model.Avatar = user.Avatar;
+            if ( user.emailDonacion != null )
+            {
+                ViewBag.donacion2 = user.emailDonacion;
+
+            }
+
+            //Archivos
+
+            List<string> listaRutaImagenes = new List<string>();
+            var carpeta = Server.MapPath("~") + @"Uploads";
+            Debug.WriteLine(carpeta);
+            //Necesitas: using System.IO; para realizar esto
+            DirectoryInfo d = new DirectoryInfo(carpeta);
+            //Obtenemos todos los .jpg
+            FileInfo[] Files = d.GetFiles("*" + user.Id + "*");
+            //Recorremos la carpeta
+            foreach ( FileInfo file in Files )
+            {
+                listaRutaImagenes.Add(file.Name);
+            }
+            ViewBag.lista = listaRutaImagenes;
+
+            return View(model);
         }
 
         // GET: Miembros/Details/5
@@ -209,7 +238,7 @@ namespace cubicomic.Controllers
         public ActionResult getDonacion(string email)
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-          var original = db.Users.Find(user.Id);
+            var original = db.Users.Find(user.Id);
 
           var sql = @"Update [AspNetUsers] SET emailDonacion = {0} WHERE Id = {1}";
           db.Database.ExecuteSqlCommand(sql, email, user.Id);
