@@ -35,6 +35,8 @@ namespace cubicomic.Models
                 return LastName + ", " + FirstName;
             }
         }
+        [EmailAddress]
+        public string emailDonacion { get; set; }
         public virtual File Avatar { get; set; }
         public virtual ICollection<File> Files { get; set; }
         public virtual ICollection<FilePath> FilePaths { get; set; }

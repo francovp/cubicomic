@@ -2,8 +2,7 @@
 
 <!-- SIDEBAR USERPIC -->
 <div class="profile-userpic">
-    <img class="img-responsive" src="@Url.Action( "ShowAvatar", "Miembros")"/>
-    @*<img src="model => model.Avatar" class="img-responsive" alt="">*@
+    <img class="img-responsive" src="@Url.Action("ShowAvatar", "Miembros", new { id = Model.Id })"/>
 </div>
 <!-- END SIDEBAR USERPIC -->
 <!-- SIDEBAR USER TITLE -->

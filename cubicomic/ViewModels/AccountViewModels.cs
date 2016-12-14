@@ -141,4 +141,9 @@ namespace cubicomic.Models
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
     }
+    public class mailDonacion
+    {
+        [EmailAddress]
+        public string emailDonacion { get; set; }
+    }
 }

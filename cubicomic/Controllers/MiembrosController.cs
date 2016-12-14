@@ -10,27 +10,33 @@ using System.IO;
 using System.Collections.Generic;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace cubicomic.Controllers
 {
     public class MiembrosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-
         // GET: Miembros
-        public ActionResult Perfil()
+        public ActionResult Perfil(string id)
         {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
             //Datos del usuario
             PerfilViewModel model = new PerfilViewModel();
+            model.Id = user.Id;
             model.UserName = user.UserName;
             model.FirstName = user.FirstName;
             model.LastName = user.LastName;
-            model.CompleteName = user.FirstName + " " + user.LastName; 
+            model.CompleteName = user.FirstName + " " + user.LastName;
             model.Email = user.Email;
             model.Avatar = user.Avatar;
+            if(user.emailDonacion != null)
+            {
+                ViewBag.donacion = user.emailDonacion;
 
-            //Archivos 
+            }
+
+            //Archivos
 
             List<string> listaRutaImagenes = new List<string>();
             var carpeta = Server.MapPath("~") + @"Uploads";
@@ -50,11 +56,12 @@ namespace cubicomic.Controllers
         }
 
         // GET: Image
-        public ActionResult ShowAvatar()
+        public ActionResult ShowAvatar(string id)
         {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
             //var imageId = db.Files.Find(id);
             //File image = db.Files.Include(s => s.File).SingleOrDefault(s => s.ID == id);
-          try
+            try
             {
                 var imageData = user.Avatar.Content;
                 var imageType = user.Avatar.ContentType;
@@ -64,9 +71,9 @@ namespace cubicomic.Controllers
             {
                 return null;
             }
-           
-            
-                     
+
+
+
         }
 
         public ActionResult Galeria()
@@ -74,9 +81,41 @@ namespace cubicomic.Controllers
             return View();
         }
 
-        public ActionResult ConfigCuenta()
+        public ActionResult ConfigCuenta2(string id)
         {
-            return View();
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
+            //Datos del usuario
+            PerfilViewModel model = new PerfilViewModel();
+            model.Id = user.Id;
+            model.UserName = user.UserName;
+            model.FirstName = user.FirstName;
+            model.LastName = user.LastName;
+            model.CompleteName = user.FirstName + " " + user.LastName;
+            model.Email = user.Email;
+            model.Avatar = user.Avatar;
+            if ( user.emailDonacion != null )
+            {
+                ViewBag.donacion2 = user.emailDonacion;
+
+            }
+
+            //Archivos
+
+            List<string> listaRutaImagenes = new List<string>();
+            var carpeta = Server.MapPath("~") + @"Uploads";
+            Debug.WriteLine(carpeta);
+            //Necesitas: using System.IO; para realizar esto
+            DirectoryInfo d = new DirectoryInfo(carpeta);
+            //Obtenemos todos los .jpg
+            FileInfo[] Files = d.GetFiles("*" + user.Id + "*");
+            //Recorremos la carpeta
+            foreach ( FileInfo file in Files )
+            {
+                listaRutaImagenes.Add(file.Name);
+            }
+            ViewBag.lista = listaRutaImagenes;
+
+            return View(model);
         }
 
         // GET: Miembros/Details/5
@@ -122,7 +161,7 @@ namespace cubicomic.Controllers
         //}
 
         // POST: miembro/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
@@ -191,6 +230,20 @@ namespace cubicomic.Controllers
                 return View();
             }
         }
+        public ActionResult _donacion(string email)
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult getDonacion(string email)
+        {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            var original = db.Users.Find(user.Id);
 
+          var sql = @"Update [AspNetUsers] SET emailDonacion = {0} WHERE Id = {1}";
+          db.Database.ExecuteSqlCommand(sql, email, user.Id);
+          db.SaveChanges();
+            return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
+        }
     }
 }

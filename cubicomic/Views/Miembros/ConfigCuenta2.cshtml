@@ -1,0 +1,65 @@
+﻿@model cubicomic.ViewModels.PerfilViewModel
+@using Microsoft.AspNet.Identity
+
+<link rel="stylesheet" href="~/Content/perfil.css" />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- start: Content -->
+            <div id="content" class="col-lg-10 col-sm-11 ">
+
+                <div class="row profile">
+                    <div class="col-md-3">
+                        <div class="profile-sidebar">
+                            @Html.Partial("_PerfilSidebarPartial")
+                            <!-- SIDEBAR MENU -->
+                            <div class="profile-usermenu">
+                                <ul class="nav">
+                                    <li>
+                                        <a href="@Url.Action("Perfil", "Miembros", new { id = Model.Id })">
+                                                <i class="glyphicon glyphicon-home"></i>
+                                                Perfil
+                                        </a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                            Configuración de Cuenta
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END MENU -->
+                        </div>
+                    </div><!--/col-->
+
+                    <div class="col-sm-9">
+
+                        <!-- <div class="well"> -->
+                        <ul class="nav nav-tabs">
+                            @if ( User.Identity.GetUserId() == Model.Id )
+                            {
+                                <li class="active"><a href="#donacion" data-toggle="tab">Configurar cuenta Donacion</a></li>
+                            }
+                        </ul>
+
+                        <div id="myTabContent" class="tab-content">
+                            @if (User.Identity.GetUserId() == Model.Id )
+                            {
+                                <div class="tab-pane active in" id="donacion">
+                                    @Html.Partial("_donacion")
+                                </div>
+                            }
+                        </div>
+
+                        <!--  </div> -->
+
+                    </div><!--/col-->
+
+                </div><!--/profile-->
+            </div>
+            <!-- end: Content -->
+        </div>
+    </div>
+</div>

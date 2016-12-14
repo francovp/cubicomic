@@ -23,9 +23,9 @@
                 </ul>
             </li>*@
             <li>
-                @Html.ActionLink("Hola " + User.Identity.GetUserName(), "Perfil", "Miembros")
+                @Html.ActionLink("Hola " + User.Identity.GetUserName(), "Perfil", "Miembros", new { id = User.Identity.GetUserId() }, FormMethod.Post )
             </li>
-            <li>@Html.ActionLink("Subir Archivo", "Index", "SubirImagen")</li> 
+            <li>@Html.ActionLink("Subir Archivo", "Index", "SubirImagen")</li>
 <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
         </ul>
     }

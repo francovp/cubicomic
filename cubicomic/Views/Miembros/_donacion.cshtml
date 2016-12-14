@@ -1,0 +1,17 @@
+﻿
+@using ( Html.BeginForm("getDonacion", "Miembros", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }) )
+{
+    <div class="form-group">
+            <h4>
+                Si deseas recibir donaciones por tu trabajo, <br /> introduce tu correo de paypal para que recibas donaciones
+            </h4>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Escribe tu corre de paypal:", htmlAttributes: new { @class = "control-label col-md-3" })
+        <input class="btn btn-default" type="text" name="email" value="" />
+        <input class="btn btn-default" type="submit" value="Enviar" />
+    </div>
+}
+
+
