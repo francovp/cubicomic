@@ -24,6 +24,7 @@ namespace cubicomic.Controllers
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
             //Datos del usuario
             PerfilViewModel model = new PerfilViewModel();
+            model.Id = user.Id;
             model.UserName = user.UserName;
             model.FirstName = user.FirstName;
             model.LastName = user.LastName;
@@ -51,9 +52,9 @@ namespace cubicomic.Controllers
         }
 
         // GET: Image
-        public ActionResult ShowAvatar()
+        public ActionResult ShowAvatar(string id)
         {
-            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(id);
             //var imageId = db.Files.Find(id);
             //File image = db.Files.Include(s => s.File).SingleOrDefault(s => s.ID == id);
             try

@@ -6,6 +6,9 @@ namespace cubicomic.ViewModels
 {
     public class PerfilViewModel
     {
+        [Display(Name = "Id de usuario")]
+        public string Id { get; set; }
+
         [Display(Name = "Nombre")]
         public string FirstName { get; set; }
 
