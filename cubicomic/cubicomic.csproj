@@ -277,6 +277,7 @@
     <None Include="Properties\PublishProfiles\cubicomic2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Img\cascada.png" />
     <Content Include="Img\close.png" />
     <Content Include="Img\Index\collague_autores_famosos.jpg" />
     <Content Include="Img\Index\collague_logo_empresa_1.png" />
@@ -297,6 +298,7 @@
     <Content Include="Img\Index\subidorImagenInspiradorBackground.jpg" />
     <Content Include="Img\loading.gif" />
     <Content Include="Img\next.png" />
+    <Content Include="Img\pagina.png" />
     <Content Include="Img\Patrones\patron_1.jpg" />
     <Content Include="Img\Patrones\patron_10.jpg" />
     <Content Include="Img\Patrones\patron_11.jpg" />
