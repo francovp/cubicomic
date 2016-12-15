@@ -45,12 +45,12 @@ namespace cubicomic.Controllers
                     string archivo = (user.Id + "-" + DateTime.Now.ToString("yyyyMMddHHmmss") +"-"+ categoria + "-"+ "image" + files.FileName).ToLower();
                     TempData["notice"] = "Archivos subidos con exito";
                     files.SaveAs(Server.MapPath("~/Uploads/" + archivo));
-                    return RedirectToAction("Index", "SubirImagen");
+                    
                 }
 
             }
-            TempData["notice"] = "Por favor seleccione un archivo para subirlo";
-           return RedirectToAction("Index", "SubirImagen");
+            TempData["notice"] = "Archivos subidos con exito";
+            return RedirectToAction("Index", "SubirImagen");
         } 
 
         [HttpPost]
