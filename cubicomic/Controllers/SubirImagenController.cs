@@ -43,7 +43,6 @@ namespace cubicomic.Controllers
                 if (files != null && files.ContentLength > 0)
                 {
                     string archivo = (user.Id + "-" + DateTime.Now.ToString("yyyyMMddHHmmss") +"-"+ categoria + "-"+ "image" + files.FileName).ToLower();
-                    TempData["notice"] = "Archivos subidos con exito";
                     files.SaveAs(Server.MapPath("~/Uploads/" + archivo));
                     
                 }
