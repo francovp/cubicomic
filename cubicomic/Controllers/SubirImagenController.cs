@@ -38,6 +38,11 @@ namespace cubicomic.Controllers
                 TempData["notice"] = "Ocurrio un error al subir la imagen, intente nuevamente";
                 return RedirectToAction("Index", "SubirImagen");
             }
+            if(user.Id == null)
+            {
+                TempData["notice"] = "Ocurrio un error al subir la imagen, Porfavor inicie una cuenta valida";
+                return RedirectToAction("Index", "SubirImagen");
+            }
             foreach (var files in file)
             {
                 if (files != null && files.ContentLength > 0)
@@ -89,6 +94,11 @@ namespace cubicomic.Controllers
 
         public ActionResult SubirComic(IEnumerable<HttpPostedFileBase> comic, HttpPostedFileBase[] portada, String categoria, string nombre)
         {
+            if (user.Id == null)
+            {
+                TempData["notice"] = "Ocurrio un error al subir la imagen, Porfavor inicie una cuenta valida";
+                return RedirectToAction("Index", "SubirImagen");
+            }
             if (portada[0] != null && comic.LongCount() > 0 )
             {
                 string fileExt = Path.GetExtension(portada[0].FileName).ToLower();
@@ -130,6 +140,11 @@ namespace cubicomic.Controllers
 
         public ActionResult SubirManga(IEnumerable<HttpPostedFileBase> manga, HttpPostedFileBase[] portada, string categoria, string nombre)
         {
+            if (user.Id == null)
+            {
+                TempData["notice"] = "Ocurrio un error al subir la imagen, Porfavor inicie una cuenta valida";
+                return RedirectToAction("Index", "SubirImagen");
+            }
             if (portada[0] != null && manga.LongCount() > 0)
             {
                 string fileExt = Path.GetExtension(portada[0].FileName).ToLower();
