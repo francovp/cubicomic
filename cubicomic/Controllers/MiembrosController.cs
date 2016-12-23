@@ -239,8 +239,13 @@ namespace cubicomic.Controllers
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             var original = db.Users.Find(user.Id);
+            if ( email == "")
+            {
+                TempData["notice"] = "por favor rellena el campo email";
+                return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
+            }
 
-          var sql = @"Update [AspNetUsers] SET emailDonacion = {0} WHERE Id = {1}";
+            var sql = @"Update [AspNetUsers] SET emailDonacion = {0} WHERE Id = {1}";
           db.Database.ExecuteSqlCommand(sql, email, user.Id);
           db.SaveChanges();
             return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
