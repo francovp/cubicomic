@@ -237,7 +237,7 @@ namespace cubicomic.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
             }
             AddErrors(result);
             return View(model);
@@ -266,7 +266,7 @@ namespace cubicomic.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     }
-                    return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
+                    return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
                 }
                 AddErrors(result);
             }

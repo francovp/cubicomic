@@ -46,6 +46,10 @@
                             {
                                 <li><a href="#editar" data-toggle="tab">editar cuenta </a></li>
                             }
+                             @if ( User.Identity.GetUserId() == Model.Id )
+                            {
+                               <li> @Html.ActionLink("Cambiar Clave", "ChangePassword", "Manage")</li>
+                            }
                         </ul>
 
                         <div id="myTabContent" class="tab-content">
@@ -62,6 +66,7 @@
                                     @Html.Partial("_editar")
                                 </div>
                             }
+                        
                         </div>
 
                         <!--  </div> -->
