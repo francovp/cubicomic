@@ -42,6 +42,10 @@
                             {
                                 <li class="active"><a href="#donacion" data-toggle="tab">Configurar cuenta Donacion</a></li>
                             }
+                             @if ( User.Identity.GetUserId() == Model.Id )
+                            {
+                                <li><a href="#editar" data-toggle="tab">editar cuenta </a></li>
+                            }
                         </ul>
 
                         <div id="myTabContent" class="tab-content">
@@ -49,6 +53,13 @@
                             {
                                 <div class="tab-pane active in" id="donacion">
                                     @Html.Partial("_donacion")
+                                </div>
+                            }
+                    
+                            @if (User.Identity.GetUserId() == Model.Id )
+                            {
+                                <div class="tab-pane  in" id="editar">
+                                    @Html.Partial("_editar")
                                 </div>
                             }
                         </div>

@@ -1,0 +1,40 @@
+﻿
+@{
+   if (TempData["notice"] != null) {
+   <text>
+   <script type="text/javascript">
+     alert('@TempData["notice"]');
+   </script>
+   </text>
+   }
+}
+
+@using ( Html.BeginForm("setEditar", "Miembros", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }) )
+{
+    <div class="form-group">
+        <h4>
+            Para editar su información básica, por favor rellene los campos de abajo
+        </h4>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Nombre:", htmlAttributes: new { @class = "control-label col-md-3" })
+         <input class="btn btn-default" type="text" name="nombre" value="" />
+    </div>
+
+     <div class="form-group">
+        @Html.Label("Apellido:", htmlAttributes: new { @class = "control-label col-md-3" })
+         <input class="btn btn-default" type="text" name="apellido" value="" />
+     </div>
+
+     <div class="form-group">
+        @Html.Label("Correo:", htmlAttributes: new { @class = "control-label col-md-3" })
+         <input class="btn btn-default" type="text" name="email" value="" />    
+    </div>
+
+      <div class="form-group">
+        <input class="btn btn-default" type="submit" value="Enviar" />
+     </div>
+}
+
+

@@ -404,6 +404,7 @@
     <Content Include="Views\Home\_CreadoresPartial.cshtml" />
     <Content Include="Views\SubirImagen\_Imagen.cshtml" />
     <Content Include="Views\Miembros\ConfigCuenta2.cshtml" />
+    <Content Include="Views\Miembros\_editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

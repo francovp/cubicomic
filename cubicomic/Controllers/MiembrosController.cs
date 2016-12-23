@@ -245,5 +245,37 @@ namespace cubicomic.Controllers
           db.SaveChanges();
             return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
         }
+        public ActionResult _editar(string nombre, string apellido, string email)
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult setEditar(string nombre, string apellido, string email)
+        {
+         
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            var original = db.Users.Find(user.Id);
+            if (nombre == "" && apellido == "" && email =="")
+            {
+                TempData["notice"] = "por favor rellena algun campo a modificar";
+                return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
+            }
+            if(nombre == "")
+            {
+                nombre = user.FirstName;
+            }
+            if(apellido == "")
+            {
+                apellido = user.LastName;
+            }
+            if(email =="")
+            {
+                email = user.Email;
+            }
+            var sql = @"Update [AspNetUsers] SET FirstName = {0}, LastName = {1}, Email ={2} WHERE Id = {3}";
+            db.Database.ExecuteSqlCommand(sql, nombre,apellido, email, user.Id);
+            db.SaveChanges();
+            return RedirectToAction("Perfil", "Miembros", new { id = user.Id });
+        }
     }
 }
