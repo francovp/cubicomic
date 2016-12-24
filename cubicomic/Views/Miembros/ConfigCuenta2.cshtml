@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="~/Content/perfil.css" />
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <!-- start: Content -->
@@ -59,14 +59,14 @@
                                     @Html.Partial("_donacion")
                                 </div>
                             }
-                    
+
                             @if (User.Identity.GetUserId() == Model.Id )
                             {
                                 <div class="tab-pane  in" id="editar">
                                     @Html.Partial("_editar")
                                 </div>
                             }
-                        
+
                         </div>
 
                         <!--  </div> -->
