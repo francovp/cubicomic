@@ -24,7 +24,7 @@
                                             </a>
                                         </li>
 
-                                        @if ( User.Identity.GetUserId() == Model.Id )
+                                        @if (User.Identity.GetUserId() == Model.Id)
                                         {
                                             <li>
                                                 <a href="@Url.Action("ConfigCuenta2", "Miembros", new { id = Model.Id })">
@@ -35,7 +35,7 @@
                                         }
                                         <br />
                                         <li>
-                                            @if ( ViewBag.donacion != null )
+                                            @if (ViewBag.donacion != null)
                                             {
                                                 <div class="form-group col-centered">
                                                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -61,61 +61,70 @@
                         <div class="col-sm-9">
 
                             <!-- <div class="well"> -->
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#perfil" data-toggle="tab">Perfil</a></li>
-                                    <li><a href="#galeria" data-toggle="tab">Galería</a></li>
-                                </ul>
-                                <div id="myTabContent" class="tab-content">
-                                    <div class="tab-pane active in" id="perfil">
-                                        <br />
-                                        <form class="form-horizontal" id="tab">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                <div class="col-md-8">
-                                                    @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "form-control" , @readonly="readonly"})
-                                                </div>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#perfil" data-toggle="tab">Perfil</a></li>
+                                <li><a href="#galeria" data-toggle="tab">Galería</a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane active in" id="perfil">
+                                    <br />
+                                    <form class="form-horizontal" id="tab">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                            <div class="col-md-8">
+                                                @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
                                             </div>
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                <div class="col-md-8">
-                                                    @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "form-control" , @readonly="readonly"})
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                            <div class="col-md-8">
+                                                @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
                                             </div>
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                <div class="col-md-8">
-                                                    @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "form-control" , @readonly="readonly"})
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                            <div class="col-md-8">
+                                                @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
                                             </div>
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                <div class="col-md-8">
-                                                    @Html.TextBoxFor(model => model.Email,  htmlAttributes: new { @class = "form-control" , @readonly="readonly"})
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3" })
+                                            <div class="col-md-8">
+                                                @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div class="tab-pane fade" id="galeria">
-                                        @Html.Partial("_GaleriaPartial2")
-                                    </div>
-                                    @if (User.Identity.GetUserId() == Model.Id )
-                                    {
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="galeria">
+                                    @Html.Partial("_GaleriaPartial2")
+                                </div>
+
+                                @if (User.Identity.GetUserId() == Model.Id)
+                                {
                                     <div class="tab-pane fade" id="donacion">
-                                         @Html.Partial("_donacion")
+                                        @Html.Partial("_donacion")
 
                                     </div>
-                                    }
-                                </div>
+                                }
+                            </div>
 
                             <!--  </div> -->
 
                         </div><!--/col-->
 
                     </div><!--/profile-->
+
+                    <div class="row comentarios">
+                        <div class="col-md-12">
+                            <br />
+                            @Html.Partial("_ComentariosPartial")
+                            <br />
+                        </div>
+
+                    </div>
+
                 </div>
-                <!-- end: Content -->
+
             </div>
-        </div>
-    </div>
 </body>
 </html>
