@@ -9,9 +9,9 @@ namespace cubicomic.DAL
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-           //: base("DefaultConnection", throwIfV1Schema: false)
+           : base("DefaultConnection", throwIfV1Schema: false)
            // : base("TestConnection", throwIfV1Schema: false)
-            : base("LocalConnection", throwIfV1Schema: false)
+           // : base("LocalConnection", throwIfV1Schema: false)
         {
         }
         public DbSet<File> Files { get; set; }
