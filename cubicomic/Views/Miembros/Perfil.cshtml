@@ -2,129 +2,125 @@
 @using Microsoft.AspNet.Identity
 
 <link rel="stylesheet" href="~/Content/perfil.css" />
+<div class="row">
+    <div class="col-md-12">
+        <!-- start: Content -->
+        <div id="content" class="col-lg-10 col-sm-11 ">
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- start: Content -->
-                <div id="content" class="col-lg-10 col-sm-11 ">
-
-                    <div class="row profile">
-                        <div class="col-md-3">
-                            <div class="profile-sidebar">
-                                @Html.Partial("_PerfilSidebarPartial")
-                                <!-- SIDEBAR MENU -->
-                                <div class="profile-usermenu">
-                                    <ul class="nav">
-                                        <li class="active">
-                                            <a href="#">
-                                                <i class="glyphicon glyphicon-home"></i>
-                                                Perfil
-                                            </a>
-                                        </li>
-
-                                        @if (User.Identity.GetUserId() == Model.Id)
-                                        {
-                                            <li>
-                                                <a href="@Url.Action("ConfigCuenta2", "Miembros", new { id = Model.Id })">
-                                                    <i class="glyphicon glyphicon-user"></i>
-                                                    Configuración de Cuenta
-                                                </a>
-                                            </li>
-                                        }
-                                        <br />
-                                        <li>
-                                            @if (ViewBag.donacion != null)
-                                            {
-                                                <div class="form-group col-centered">
-                                                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                                        <input type="hidden" name="cmd" value="_donations">
-                                                        <input type="hidden" name="business" value="@ViewBag.donacion">
-                                                        <input type="hidden" name="lc" value="AL">
-                                                        <input type="hidden" name="item_name" value="CubiComic">
-                                                        <input type="hidden" name="no_note" value="0">
-                                                        <input type="hidden" name="currency_code" value="USD">
-                                                        <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-                                                        <input type="image" src="https://www.paypalobjects.com/es_XC/AR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                                                        <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-                                                    </form>
-                                                </div>
-                                            }
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- END MENU -->
-                            </div>
-                        </div><!--/col-->
-
-                        <div class="col-sm-9">
-
-                            <!-- <div class="well"> -->
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#perfil" data-toggle="tab">Perfil</a></li>
-                                <li><a href="#galeria" data-toggle="tab">Galería</a></li>
-                            </ul>
-                            <div id="myTabContent" class="tab-content">
-                                <div class="tab-pane active in" id="perfil">
-                                    <br />
-                                    <form class="form-horizontal" id="tab">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                            <div class="col-md-8">
-                                                @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                            <div class="col-md-8">
-                                                @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                            <div class="col-md-8">
-                                                @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3" })
-                                            <div class="col-md-8">
-                                                @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane fade" id="galeria">
-                                    @Html.Partial("_GaleriaPartial2")
-                                </div>
+            <div class="row profile">
+                <div class="col-md-3">
+                    <div class="profile-sidebar">
+                        @Html.Partial("_PerfilSidebarPartial")
+                        <!-- SIDEBAR MENU -->
+                        <div class="profile-usermenu">
+                            <ul class="nav">
+                                <li class="active">
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-home"></i>
+                                        Perfil
+                                    </a>
+                                </li>
 
                                 @if (User.Identity.GetUserId() == Model.Id)
                                 {
-                                    <div class="tab-pane fade" id="donacion">
-                                        @Html.Partial("_donacion")
-
-                                    </div>
+                                    <li>
+                                        <a href="@Url.Action("ConfigCuenta2", "Miembros", new { id = Model.Id })">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                            Configuración de Cuenta
+                                        </a>
+                                    </li>
                                 }
-                            </div>
+                                <br />
+                                <li>
+                                    @if (ViewBag.donacion != null)
+                                    {
+                                        <div class="form-group col-centered">
+                                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                                <input type="hidden" name="cmd" value="_donations">
+                                                <input type="hidden" name="business" value="@ViewBag.donacion">
+                                                <input type="hidden" name="lc" value="AL">
+                                                <input type="hidden" name="item_name" value="CubiComic">
+                                                <input type="hidden" name="no_note" value="0">
+                                                <input type="hidden" name="currency_code" value="USD">
+                                                <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                                                <input type="image" src="https://www.paypalobjects.com/es_XC/AR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                                <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+                                            </form>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END MENU -->
+                    </div>
+                </div><!--/col-->
 
-                            <!--  </div> -->
+                <div class="col-sm-9">
 
-                        </div><!--/col-->
-
-                    </div><!--/profile-->
-
-                    <div class="row">
-                        <div class="col-md-12">
+                    <!-- <div class="well"> -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#perfil" data-toggle="tab">Perfil</a></li>
+                        <li><a href="#galeria" data-toggle="tab">Galería</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane active in" id="perfil">
                             <br />
-                            @Html.Partial("_ComentariosPartial")
-                            <br />
+                            <form class="form-horizontal" id="tab">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="galeria">
+                            @Html.Partial("_GaleriaPartial2")
                         </div>
 
+                        @if (User.Identity.GetUserId() == Model.Id)
+                        {
+                            <div class="tab-pane fade" id="donacion">
+                                @Html.Partial("_donacion")
+
+                            </div>
+                        }
                     </div>
 
+                    <!--  </div> -->
+
+                </div><!--/col-->
+
+            </div><!--/profile-->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <br />
+                    @Html.Partial("_ComentariosPartial")
+                    <br />
                 </div>
 
             </div>
-</body>
-</html>
+
+        </div>
+
+    </div>
+</div>
